@@ -1,3 +1,9 @@
+import photographySample from '../assets/photography-sample-1.png'
+import photographySampleTwo from '../assets/photography-sample-2.png'
+import videographySampleOne from '../assets/videography-sample-1.png'
+import graphicDesignSampleTwo from '../assets/graphic-design-sample-2.png'
+import graphicDesignSampleThree from '../assets/graphic-design-sample-4.png'
+
 export const roles = [
   'Photographer',
   'Videographer',
@@ -15,12 +21,14 @@ export const creativeSections = [
     description:
       'I present content on camera with clarity and confidence, focusing on strong communication and audience engagement.',
     skills: ['On-Camera Hosting', 'Script Delivery', 'Educational & Informational Presentation'],
+    mediaEmbeds: ['https://drive.google.com/file/d/1rgkegY78eoJYM142OFe_9pN-Meudrv5a/preview'],
   },
   {
     title: 'Photography',
     description:
       'I capture meaningful moments through photography, emphasizing storytelling, composition, and lighting.',
     skills: ['Portrait & Event Photography', 'Photo Editing'],
+    mediaImages: [photographySample, photographySampleTwo],
   },
   {
     title: 'Videography & Editing',
@@ -31,6 +39,8 @@ export const creativeSections = [
       'Video Editing (Premiere Pro / CapCut / After Effects)',
       'Color Grading & Storytelling',
     ],
+    mediaEmbeds: ['https://drive.google.com/file/d/1QQ1wOE3oFZuYJVHqZtzyWXBpjx9U5FhF/preview'],
+    mediaImages: [videographySampleOne],
   },
   {
     title: 'Graphic Design & Layouting',
@@ -42,6 +52,7 @@ export const creativeSections = [
       'Typography & Visual Hierarchy',
       'Tools: Canva, Photoshop, Illustrator',
     ],
+    mediaImages: [graphicDesignSampleTwo, graphicDesignSampleThree],
   },
 ]
 

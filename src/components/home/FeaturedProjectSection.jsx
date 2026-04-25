@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import dashboardImage from '../../assets/mabuhightrack-dashboard.png'
 
 function FeaturedProjectSection() {
   return (
@@ -16,9 +17,11 @@ function FeaturedProjectSection() {
         </Link>
       </div>
       <div className="rounded-2xl border-2 border-dashed border-purple-300 bg-gradient-to-br from-purple-100 to-white p-4 shadow-inner">
-        <div className="flex h-full min-h-52 items-center justify-center rounded-2xl bg-white/80 text-center text-sm font-medium text-purple-700">
-          Dashboard Image Placeholder
-        </div>
+        <img
+          src={dashboardImage}
+          alt="MabuHighTrack dashboard preview"
+          className="h-full min-h-52 w-full rounded-2xl object-cover"
+        />
       </div>
     </section>
   )

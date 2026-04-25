@@ -1,4 +1,5 @@
 import SectionTitle from '../components/SectionTitle'
+import aboutProfileImage from '../assets/about-profile.png'
 
 function About() {
   return (
@@ -33,9 +34,11 @@ function About() {
         </article>
 
         <div className="animate-fadeInUp rounded-3xl bg-gradient-to-br from-purple-100 via-purple-50 to-white p-5 shadow-sm">
-          <div className="flex h-full min-h-72 items-center justify-center rounded-2xl border-2 border-dashed border-purple-300 bg-white/70 text-center text-sm text-purple-600">
-            Optional About Image Placeholder
-          </div>
+          <img
+            src={aboutProfileImage}
+            alt="Princess Angel portrait"
+            className="h-full min-h-72 w-full rounded-2xl object-cover"
+          />
         </div>
       </div>
     </section>

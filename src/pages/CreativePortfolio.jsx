@@ -17,6 +17,8 @@ function CreativePortfolio() {
             title={section.title}
             description={section.description}
             skills={section.skills}
+            mediaEmbeds={section.mediaEmbeds}
+            mediaImages={section.mediaImages}
           />
         ))}
       </div>
