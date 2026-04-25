@@ -5,11 +5,6 @@ const skillCards = [
     items: 'Photography, Videography, Editing, Graphic Design & Layouting',
   },
   {
-    icon: '💻',
-    title: 'Technical',
-    items: 'Laravel, React, APIs, MySQL',
-  },
-  {
     icon: '🧠',
     title: 'Leadership',
     items: 'Project Management, System Analysis',
