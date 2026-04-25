@@ -1,7 +1,11 @@
+import { useState } from 'react'
+
 function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], mediaImages = [], mediaLinks = [], hintText = '' }) {
+  const [lightbox, setLightbox] = useState(null)
+
   return (
     <article className="animate-fadeInUp rounded-3xl border border-purple-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-      <h3 className="mb-2 text-xl font-semibold text-black">{title}</h3>
+      <h3 className="mb-2 text-lg font-semibold text-black sm:text-xl">{title}</h3>
       <p className="mb-4 text-sm text-gray-600">{description}</p>
       {skills.length > 0 && (
         <ul className="mb-4 space-y-1 text-sm text-gray-700">
@@ -43,18 +47,37 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
 
               if (mediaImages[item - 1]) {
                 const imageElement = (
-                  <div className="h-full overflow-hidden rounded-xl border border-purple-300 bg-white">
-                    <img src={mediaImages[item - 1]} alt={`${title} sample ${item}`} className="h-full w-full object-cover" />
+                  <div className="group relative h-full w-full overflow-hidden rounded-xl border border-purple-300 bg-white">
+                    <button
+                      type="button"
+                      onClick={() => setLightbox({ src: mediaImages[item - 1], label: `${title} - ${skills[0] || 'Portfolio Work'}` })}
+                      className="h-full w-full"
+                    >
+                    <img
+                      src={mediaImages[item - 1]}
+                      alt={`${title} sample ${item}`}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                    />
+                    </button>
+                    {mediaLink ? (
+                      <a
+                        href={mediaLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-1 text-[10px] font-semibold text-white"
+                      >
+                        More
+                      </a>
+                    ) : null}
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-2 opacity-0 transition duration-300 group-hover:opacity-100">
+                      <p className="text-left text-xs font-medium text-white">
+                        {title}
+                        <span className="block text-[11px] text-purple-200">{skills[0] || 'Creative Work'}</span>
+                      </p>
+                    </div>
                   </div>
                 )
-
-                return mediaLink ? (
-                  <a href={mediaLink} target="_blank" rel="noreferrer" className="block h-full">
-                    {imageElement}
-                  </a>
-                ) : (
-                  imageElement
-                )
+                return imageElement
               }
 
               return (
@@ -67,6 +90,22 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
         ))}
       </div>
       {hintText ? <p className="mt-3 text-xs font-medium text-purple-700">{hintText}</p> : null}
+      {lightbox ? (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-white/20 bg-black" onClick={(event) => event.stopPropagation()}>
+            <img src={lightbox.src} alt={lightbox.label} className="max-h-[80vh] w-full object-contain" />
+            <div className="flex items-center justify-between px-4 py-3 text-sm text-white">
+              <p>{lightbox.label}</p>
+              <button type="button" onClick={() => setLightbox(null)} className="rounded-full border border-white/30 px-3 py-1 text-xs">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </article>
   )
 }

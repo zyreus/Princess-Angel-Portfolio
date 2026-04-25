@@ -1,9 +1,13 @@
 import SectionTitle from '../components/SectionTitle'
 import aboutProfileImage from '../assets/about-profile.png'
+import SectionDivider from '../components/home/SectionDivider'
 
 function About() {
   return (
-    <section className="py-10 md:py-14">
+    <section className="relative overflow-hidden py-10 md:py-14">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-purple-200/40 blur-3xl" />
+      </div>
       <SectionTitle
         eyebrow="About Me"
         title="Creative and Technical Professional"
@@ -11,7 +15,7 @@ function About() {
       />
 
       <div className="grid gap-6 md:grid-cols-2">
-        <article className="animate-fadeInUp rounded-3xl border border-purple-100 bg-white p-6 shadow-sm">
+        <article className="animate-fadeInUp rounded-3xl border border-white/40 bg-white/70 p-6 shadow-soft backdrop-blur-sm">
           <h3 className="text-xl font-semibold text-black">My Background</h3>
           <p className="mt-4 text-sm leading-relaxed text-gray-600">
             I am a multidisciplinary IT student with expertise in creative media and system development. My work
@@ -33,7 +37,7 @@ function About() {
           </ul>
         </article>
 
-        <div className="animate-fadeInUp rounded-3xl bg-gradient-to-br from-purple-100 via-purple-50 to-white p-5 shadow-sm">
+        <div className="animate-fadeInUp rounded-3xl bg-gradient-to-br from-purple-100 via-purple-50 to-white p-5 shadow-soft">
           <img
             src={aboutProfileImage}
             alt="Princess Angel portrait"
@@ -41,6 +45,7 @@ function About() {
           />
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

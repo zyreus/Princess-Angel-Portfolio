@@ -1,10 +1,14 @@
 import PortfolioCard from '../components/PortfolioCard'
 import SectionTitle from '../components/SectionTitle'
+import SectionDivider from '../components/home/SectionDivider'
 import { creativeSections } from '../data/content'
 
 function CreativePortfolio() {
   return (
-    <section className="py-10 md:py-14">
+    <section className="relative overflow-hidden py-10 md:py-14">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-20 -left-24 h-56 w-56 rounded-full bg-violet-200/35 blur-3xl" />
+      </div>
       <SectionTitle
         eyebrow="Creative Portfolio"
         title="Visual Work and Storytelling"
@@ -24,6 +28,7 @@ function CreativePortfolio() {
           />
         ))}
       </div>
+      <SectionDivider />
     </section>
   )
 }

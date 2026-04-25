@@ -21,9 +21,19 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
       },
       animation: {
         fadeInUp: 'fadeInUp 0.6s ease-out both',
+        float: 'float 4s ease-in-out infinite',
+        pulseGlow: 'pulseGlow 3s ease-in-out infinite',
       },
     },
   },
