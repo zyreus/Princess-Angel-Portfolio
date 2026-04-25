@@ -17,7 +17,7 @@ function ProjectCard({ title, role, description, stack }) {
       <div className="mt-2 flex flex-wrap gap-2">
         {roleParts.map((rolePart) => (
           <span key={`${title}-${rolePart}`} className="rounded-full bg-purple-100 px-3 py-1 text-xs font-semibold text-purple-700">
-            {roleIcons[rolePart] || '✨'} {rolePart}
+            {roleIcons[rolePart] || '•'} {rolePart}
           </span>
         ))}
       </div>

@@ -2,6 +2,7 @@ import photographySampleOne from '../assets/photography-sample-1.png'
 import videographySampleOne from '../assets/videography-sample-1.png'
 import graphicDesignSampleTwo from '../assets/graphic-design-sample-2.png'
 import graphicDesignSampleThree from '../assets/graphic-design-sample-4.png'
+import graphicDesignSampleFour from '../assets/graphic-design-sample-5.png'
 import photographySampleTwo from '../assets/photography-sample-2.png'
 import photographySampleThree from '../assets/photography-sample-3.png'
 
@@ -23,6 +24,7 @@ export const creativeSections = [
       'I present content on camera with clarity and confidence, focusing on strong communication and audience engagement.',
     skills: ['On-Camera Hosting', 'Script Delivery', 'Educational & Informational Presentation'],
     mediaEmbeds: ['https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/preview'],
+    hintText: 'Click the Video to Play',
   },
   {
     title: 'Photography',
@@ -61,6 +63,7 @@ export const creativeSections = [
       'https://drive.google.com/file/d/10kSXOTRBVNFB-oJDiknDZ6W6JIXPiUj1/view?t=3.995781',
       'https://drive.google.com/file/d/12Qde7pPZe7ZH33upBHhRxvwIQv1M_t-k/view',
     ],
+    hintText: 'Click the Video to Play',
   },
   {
     title: 'Graphic Design & Layouting',
@@ -72,7 +75,9 @@ export const creativeSections = [
       'Typography & Visual Hierarchy',
       'Tools: Canva, Photoshop, Illustrator',
     ],
-    mediaImages: [graphicDesignSampleTwo, graphicDesignSampleThree],
+    mediaImages: [graphicDesignSampleTwo, graphicDesignSampleThree, graphicDesignSampleFour],
+    mediaLinks: [graphicDesignSampleTwo, graphicDesignSampleThree, graphicDesignSampleFour],
+    hintText: 'Click the Picture to view whole',
   },
 ]
 

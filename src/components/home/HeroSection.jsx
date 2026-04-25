@@ -37,8 +37,7 @@ function HeroSection() {
           Hi, I&apos;m{' '}
           <span className="bg-gradient-to-r from-purple-700 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
             Princess Angel Paslot
-          </span>{' '}
-          ✨
+          </span>
         </h1>
         <p className="text-sm leading-relaxed text-gray-700 md:text-base">
           <span className="mr-2 text-gray-500">Role:</span>
