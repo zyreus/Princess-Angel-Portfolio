@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import photographySample from '../../assets/photography-sample-1.png'
 import graphicDesignSample from '../../assets/graphic-design-sample-1.png'
+import layoutingSample from '../../assets/layouting-sample-1.png'
 
 const creativeItems = ['Photography', 'Videography', 'Editing', 'Graphic Design', 'Layouting', 'Brand Visuals']
 const videographyEmbedUrl = 'https://drive.google.com/file/d/1QQ1wOE3oFZuYJVHqZtzyWXBpjx9U5FhF/preview'
@@ -59,6 +60,10 @@ function CreativePreviewSection() {
                   alt="Graphic design sample"
                   className="aspect-[4/3] w-full object-cover"
                 />
+              </div>
+            ) : item === 'Layouting' ? (
+              <div className="overflow-hidden rounded-xl border border-purple-200 bg-white">
+                <img src={layoutingSample} alt="Layouting sample" className="aspect-[4/3] w-full object-cover" />
               </div>
             ) : (
               <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-gradient-to-br from-purple-100 via-violet-50 to-white text-center text-sm font-medium text-purple-700">
