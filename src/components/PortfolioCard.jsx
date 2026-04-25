@@ -50,8 +50,14 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
                   <div className="group relative h-full w-full overflow-hidden rounded-xl border border-purple-300 bg-white">
                     <button
                       type="button"
-                      onClick={() => setLightbox({ src: mediaImages[item - 1], label: `${title} - ${skills[0] || 'Portfolio Work'}` })}
-                      className="h-full w-full"
+                      onClick={() =>
+                        setLightbox({
+                          src: mediaImages[item - 1],
+                          label: `${title} - ${skills[0] || 'Portfolio Work'}`,
+                          link: mediaLink,
+                        })
+                      }
+                      className="h-full w-full cursor-zoom-in"
                     >
                     <img
                       src={mediaImages[item - 1]}
@@ -59,16 +65,6 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                     />
                     </button>
-                    {mediaLink ? (
-                      <a
-                        href={mediaLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-1 text-[10px] font-semibold text-white"
-                      >
-                        More
-                      </a>
-                    ) : null}
                     <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-2 opacity-0 transition duration-300 group-hover:opacity-100">
                       <p className="text-left text-xs font-medium text-white">
                         {title}
@@ -97,11 +93,23 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
         >
           <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-white/20 bg-black" onClick={(event) => event.stopPropagation()}>
             <img src={lightbox.src} alt={lightbox.label} className="max-h-[80vh] w-full object-contain" />
-            <div className="flex items-center justify-between px-4 py-3 text-sm text-white">
+            <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 text-sm text-white">
               <p>{lightbox.label}</p>
-              <button type="button" onClick={() => setLightbox(null)} className="rounded-full border border-white/30 px-3 py-1 text-xs">
-                Close
-              </button>
+              <div className="flex items-center gap-2">
+                {lightbox.link ? (
+                  <a
+                    href={lightbox.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-white/30 px-3 py-1 text-xs"
+                  >
+                    Open Link
+                  </a>
+                ) : null}
+                <button type="button" onClick={() => setLightbox(null)} className="rounded-full border border-white/30 px-3 py-1 text-xs">
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
