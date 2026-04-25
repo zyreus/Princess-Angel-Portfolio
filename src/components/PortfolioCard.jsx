@@ -91,8 +91,11 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4"
           onClick={() => setLightbox(null)}
         >
-          <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-white/20 bg-black" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.label} className="max-h-[80vh] w-full object-contain" />
+          <div
+            className="flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-white/20 bg-black"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img src={lightbox.src} alt={lightbox.label} className="max-h-[70vh] w-full object-contain" />
             <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 text-sm text-white">
               <p>{lightbox.label}</p>
               <div className="flex items-center gap-2">
