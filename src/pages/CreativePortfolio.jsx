@@ -19,6 +19,7 @@ function CreativePortfolio() {
             skills={section.skills}
             mediaEmbeds={section.mediaEmbeds}
             mediaImages={section.mediaImages}
+            mediaLinks={section.mediaLinks}
           />
         ))}
       </div>
