@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import About from './pages/About'
@@ -8,6 +9,29 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 
 function App() {
+  const location = useLocation()
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setIsLoading(false), 1200)
+    return () => clearTimeout(timeoutId)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 z-[200] flex items-center justify-center bg-gradient-to-br from-white via-purple-100 to-violet-200 p-6 text-center">
+        <div className="animate-fadeInUp space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-purple-600">Portfolio</p>
+          <h1 className="text-3xl font-bold sm:text-4xl">
+            <span className="bg-gradient-to-r from-purple-700 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
+              Princess Angel Paslot
+            </span>
+          </h1>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-purple-50/60 to-white">
       <div className="pointer-events-none absolute inset-0 -z-0">
@@ -20,14 +44,16 @@ function App() {
       <div className="relative z-10">
         <Navbar />
         <main className="mx-auto w-full max-w-6xl px-4 md:px-6">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/creative-portfolio" element={<CreativePortfolio />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <div key={location.pathname} className="animate-fadeInUp">
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/creative-portfolio" element={<CreativePortfolio />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div>
         </main>
         <Footer />
       </div>
