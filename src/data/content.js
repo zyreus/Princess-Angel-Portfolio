@@ -39,6 +39,7 @@ export const creativeSections = [
       'https://drive.google.com/drive/folders/10eGi-DSYmEZMACKuzP87WTcCCUyhLQ3d?usp=sharing',
       'https://drive.google.com/drive/folders/10DDAhnCJRhVWTlqTVwOsDGK1F2TT6dyc?usp=drive_link',
     ],
+    hintText: 'Click the Photo for More Pictures',
   },
   {
     title: 'Videography & Editing',

@@ -20,6 +20,7 @@ function CreativePortfolio() {
             mediaEmbeds={section.mediaEmbeds}
             mediaImages={section.mediaImages}
             mediaLinks={section.mediaLinks}
+            hintText={section.hintText}
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], mediaImages = [], mediaLinks = [] }) {
+function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], mediaImages = [], mediaLinks = [], hintText = '' }) {
   return (
     <article className="animate-fadeInUp rounded-3xl border border-purple-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
       <h3 className="mb-2 text-xl font-semibold text-black">{title}</h3>
@@ -66,6 +66,7 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
           </div>
         ))}
       </div>
+      {hintText ? <p className="mt-3 text-xs font-medium text-purple-700">{hintText}</p> : null}
     </article>
   )
 }
