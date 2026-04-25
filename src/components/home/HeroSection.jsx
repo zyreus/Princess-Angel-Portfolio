@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import profileImage from '../../assets/princess-profile.png'
 
 const roles = [
   'Photographer',
@@ -39,9 +40,11 @@ function HeroSection() {
       </div>
 
       <div className="animate-fadeInUp rounded-2xl border border-purple-200/80 bg-white/70 p-4 shadow-soft">
-        <div className="flex aspect-square items-center justify-center rounded-2xl border-2 border-dashed border-purple-300 bg-gradient-to-br from-purple-100 via-white to-violet-100 text-center text-sm font-medium text-purple-700 shadow-[0_0_40px_rgba(124,58,237,0.2)]">
-          Profile Image Placeholder
-        </div>
+        <img
+          src={profileImage}
+          alt="Princess Angel Paslot"
+          className="aspect-square w-full rounded-2xl object-cover shadow-[0_0_40px_rgba(124,58,237,0.25)]"
+        />
       </div>
     </section>
   )
