@@ -1,13 +1,24 @@
 import { useState } from 'react'
 
-function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], mediaImages = [], mediaLinks = [], hintText = '' }) {
+function PortfolioCard({
+  title,
+  description,
+  skills = [],
+  mediaEmbeds = [],
+  mediaImages = [],
+  mediaLinks = [],
+  hintText = '',
+  mediaOnly = false,
+  placeholderCount = 3,
+}) {
   const [lightbox, setLightbox] = useState(null)
+  const totalSlots = Math.max(placeholderCount, mediaEmbeds.length, mediaImages.length)
 
   return (
     <article className="animate-fadeInUp rounded-3xl border border-purple-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
-      <h3 className="mb-2 text-lg font-semibold text-black sm:text-xl">{title}</h3>
-      <p className="mb-4 text-sm text-gray-600">{description}</p>
-      {skills.length > 0 && (
+      {!mediaOnly && <h3 className="mb-2 text-lg font-semibold text-black sm:text-xl">{title}</h3>}
+      {!mediaOnly && <p className="mb-4 text-sm text-gray-600">{description}</p>}
+      {!mediaOnly && skills.length > 0 && (
         <ul className="mb-4 space-y-1 text-sm text-gray-700">
           {skills.map((skill) => (
             <li key={`${title}-${skill}`}>- {skill}</li>
@@ -15,7 +26,7 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
         </ul>
       )}
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-        {[1, 2, 3].map((item) => (
+        {Array.from({ length: totalSlots }, (_, index) => index + 1).map((item) => (
           <div
             key={`${title}-${item}`}
             className="aspect-square rounded-2xl bg-gradient-to-br from-purple-200 via-purple-100 to-white p-2"
@@ -50,13 +61,18 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
                   <div className="group relative h-full w-full overflow-hidden rounded-xl border border-purple-300 bg-white">
                     <button
                       type="button"
-                      onClick={() =>
+                      onClick={() => {
+                        if (mediaLink) {
+                          window.open(mediaLink, '_blank', 'noopener,noreferrer')
+                          return
+                        }
+
                         setLightbox({
                           src: mediaImages[item - 1],
                           label: `${title} - ${skills[0] || 'Portfolio Work'}`,
                           link: mediaLink,
                         })
-                      }
+                      }}
                       className="h-full w-full cursor-zoom-in"
                     >
                     <img
@@ -65,12 +81,14 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                     />
                     </button>
-                    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-2 opacity-0 transition duration-300 group-hover:opacity-100">
-                      <p className="text-left text-xs font-medium text-white">
-                        {title}
-                        <span className="block text-[11px] text-purple-200">{skills[0] || 'Creative Work'}</span>
-                      </p>
-                    </div>
+                    {!mediaOnly && (
+                      <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-2 opacity-0 transition duration-300 group-hover:opacity-100">
+                        <p className="text-left text-xs font-medium text-white">
+                          {title}
+                          <span className="block text-[11px] text-purple-200">{skills[0] || 'Creative Work'}</span>
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )
                 return imageElement
@@ -85,7 +103,7 @@ function PortfolioCard({ title, description, skills = [], mediaEmbeds = [], medi
           </div>
         ))}
       </div>
-      {hintText ? <p className="mt-3 text-xs font-medium text-purple-700">{hintText}</p> : null}
+      {!mediaOnly && hintText ? <p className="mt-3 text-xs font-medium text-purple-700">{hintText}</p> : null}
       {lightbox ? (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4"

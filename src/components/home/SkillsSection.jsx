@@ -20,7 +20,7 @@ function SkillsSection() {
   return (
     <section className="space-y-6">
       <h2 className="text-2xl font-bold text-black md:text-3xl">Skills at a Glance</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-3">
         {skillCards.map((card) => (
           <article
             key={card.title}

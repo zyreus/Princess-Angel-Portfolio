@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import About from './pages/About'
+import AllWorks from './pages/AllWorks'
 import Contact from './pages/Contact'
 import CreativePortfolio from './pages/CreativePortfolio'
 import Home from './pages/Home'
@@ -49,6 +50,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/creative-portfolio" element={<CreativePortfolio />} />
+              <Route path="/all-works" element={<AllWorks />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<Navigate to="/" replace />} />

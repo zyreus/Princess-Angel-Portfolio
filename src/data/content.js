@@ -3,8 +3,13 @@ import videographySampleOne from '../assets/videography-sample-1.png'
 import graphicDesignSampleTwo from '../assets/graphic-design-sample-2.png'
 import graphicDesignSampleThree from '../assets/graphic-design-sample-4.png'
 import graphicDesignSampleFour from '../assets/graphic-design-sample-5.png'
+import graphicDesignSampleSix from '../assets/graphic-design-sample-6.png'
+import graphicDesignSampleSeven from '../assets/graphic-design-sample-7.png'
 import photographySampleTwo from '../assets/photography-sample-2.png'
 import photographySampleThree from '../assets/photography-sample-3.png'
+import photographySampleFour from '../assets/photography-sample-4.png'
+import photographySampleFive from '../assets/photography-sample-5.HEIC'
+import photographySampleSix from '../assets/photography-sample-6.png'
 
 export const roles = [
   'Photographer',
@@ -35,11 +40,16 @@ export const creativeSections = [
       photographySampleOne,
       photographySampleTwo,
       photographySampleThree,
+      photographySampleFour,
+      photographySampleFive,
+      photographySampleSix,
     ],
     mediaLinks: [
       'https://drive.google.com/drive/folders/1-PZralj3lNZ_Vs65zwIQSzIGJ-8Y1T6h?usp=sharing',
       'https://drive.google.com/drive/folders/10eGi-DSYmEZMACKuzP87WTcCCUyhLQ3d?usp=sharing',
       'https://drive.google.com/drive/folders/10DDAhnCJRhVWTlqTVwOsDGK1F2TT6dyc?usp=drive_link',
+      'https://drive.google.com/drive/folders/10k-UPWPno_gARdFs3irYuunygJDUQvgA',
+      'https://drive.google.com/drive/folders/1-OsIoTTgRWGUr18m3UKPYHRvYFUobnlH',
     ],
     hintText: 'Click the Photo for More Pictures',
   },
@@ -75,8 +85,8 @@ export const creativeSections = [
       'Typography & Visual Hierarchy',
       'Tools: Canva, Photoshop, Illustrator',
     ],
-    mediaImages: [graphicDesignSampleTwo, graphicDesignSampleThree, graphicDesignSampleFour],
-    mediaLinks: [graphicDesignSampleTwo, graphicDesignSampleThree, graphicDesignSampleFour],
+    mediaImages: [graphicDesignSampleTwo, graphicDesignSampleThree, graphicDesignSampleFour, graphicDesignSampleSix, graphicDesignSampleSeven],
+    mediaLinks: [graphicDesignSampleTwo, graphicDesignSampleThree, graphicDesignSampleFour, graphicDesignSampleSix, graphicDesignSampleSeven],
     hintText: 'Click the Picture to view whole',
   },
 ]
