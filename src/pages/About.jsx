@@ -17,12 +17,12 @@ function About() {
       <div className="grid gap-6 md:grid-cols-2">
         <article className="animate-fadeInUp rounded-3xl border border-white/40 bg-white/70 p-6 shadow-soft backdrop-blur-sm">
           <h3 className="text-xl font-semibold text-black">My Background</h3>
-          <p className="mt-4 text-sm leading-relaxed text-gray-600">
+          <p className="mt-4 text-sm leading-relaxed text-justify text-gray-600">
             I am a multidisciplinary IT student with expertise in creative media and system development. My work
             includes photography, videography, video presentation, editing, graphic design, and layouting. I focus
             on delivering outcomes that are visually compelling, technically sound, and user-centered.
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-gray-600">
+          <p className="mt-4 text-sm leading-relaxed text-justify text-gray-600">
             As Project Manager and System Analyst of MabuHighTrack, I led system planning, requirement analysis, and
             development coordination to ensure an efficient and user-focused platform. During my On-the-Job Training,
             I also developed a Medical Triage System and a Mental Health Monitoring System for real-world use cases.
