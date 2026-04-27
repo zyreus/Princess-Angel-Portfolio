@@ -78,7 +78,7 @@ function PortfolioCard({
                     <img
                       src={mediaImages[item - 1]}
                       alt={`${title} sample ${item}`}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                      className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-110"
                     />
                     </button>
                     {!mediaOnly && (
