@@ -10,7 +10,7 @@ import WhyMeSection from '../components/home/WhyMeSection'
 
 function Home() {
   return (
-    <div className="space-y-10 py-8 md:space-y-14 md:py-12">
+    <div className="space-y-12 py-10 md:space-y-16 md:py-14">
       <HeroSection />
       <SectionDivider />
       <TaglineSection />

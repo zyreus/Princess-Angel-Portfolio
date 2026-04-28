@@ -7,7 +7,7 @@ function Projects() {
   return (
     <section className="relative overflow-hidden py-10 md:py-14">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute right-0 top-24 h-56 w-56 rounded-full bg-fuchsia-200/35 blur-3xl" />
+        <div className="absolute right-0 top-24 h-56 w-56 rounded-full bg-lilac-200/30 blur-3xl" />
       </div>
       <SectionTitle
         eyebrow="Projects"

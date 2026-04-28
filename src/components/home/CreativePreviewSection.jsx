@@ -10,32 +10,29 @@ const layoutingImageUrl = 'https://drive.google.com/thumbnail?id=1n9DFKAU_d-qwn4
 
 function CreativePreviewSection() {
   return (
-    <section className="space-y-6">
-      <div className="flex flex-wrap items-end justify-between gap-3">
+    <section className="space-y-8">
+      <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-black md:text-3xl">Creative Works</h2>
-          <p className="text-sm text-gray-700">Photography, Videography, Editing, Graphic Design</p>
+          <h2 className="font-display text-2xl font-bold text-lilac-900 md:text-3xl">Creative Works</h2>
+          <p className="mt-1 text-sm text-lilac-800/80">Photography, Videography, Editing, Graphic Design</p>
         </div>
-        <Link
-          to="/creative-portfolio"
-          className="rounded-full border border-purple-300 bg-white px-5 py-2 text-sm font-semibold text-purple-700 transition duration-300 hover:scale-[1.03] hover:border-purple-500 hover:shadow-soft"
-        >
+        <Link to="/creative-portfolio" className="btn-ghost">
           View Creative Portfolio
         </Link>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {creativeItems.map((item) => (
           <div
             key={item}
-            className="group animate-fadeInUp rounded-2xl border border-purple-100 bg-white p-3 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-soft"
+            className="group animate-fadeInUp overflow-hidden rounded-2xl border border-lilac-200/50 bg-white/90 p-3 shadow-diffuse transition duration-300 hover:-translate-y-0.5 hover:shadow-diffuse-lg"
           >
             {item === 'Photography' ? (
-              <div className="overflow-hidden rounded-xl border border-purple-200 bg-white">
+              <div className="overflow-hidden rounded-xl border border-lilac-200/70 bg-white">
                 <img src={photographySample} alt="Photography sample" className="aspect-[4/3] w-full object-cover" />
               </div>
             ) : item === 'Videography' ? (
-              <div className="overflow-hidden rounded-xl border border-purple-200 bg-black">
+              <div className="overflow-hidden rounded-xl border border-lilac-200/70 bg-black">
                 <iframe
                   src={videographyEmbedUrl}
                   title="A Day In My Life videography preview"
@@ -45,7 +42,7 @@ function CreativePreviewSection() {
                 />
               </div>
             ) : item === 'Editing' ? (
-              <div className="overflow-hidden rounded-xl border border-purple-200 bg-black">
+              <div className="overflow-hidden rounded-xl border border-lilac-200/70 bg-black">
                 <iframe
                   src={editingEmbedUrl}
                   title="Editing showcase preview"
@@ -55,7 +52,7 @@ function CreativePreviewSection() {
                 />
               </div>
             ) : item === 'Graphic Design' ? (
-              <div className="overflow-hidden rounded-xl border border-purple-200 bg-white">
+              <div className="overflow-hidden rounded-xl border border-lilac-200/70 bg-white">
                 <img
                   src={graphicDesignSample}
                   alt="Graphic design sample"
@@ -63,15 +60,15 @@ function CreativePreviewSection() {
                 />
               </div>
             ) : item === 'Layouting' ? (
-              <div className="overflow-hidden rounded-xl border border-purple-200 bg-white">
+              <div className="overflow-hidden rounded-xl border border-lilac-200/70 bg-white">
                 <img src={layoutingImageUrl} alt="Layouting sample" className="aspect-[4/3] w-full object-cover" />
               </div>
             ) : item === 'Brand Visuals' ? (
-              <div className="overflow-hidden rounded-xl border border-purple-200 bg-white">
+              <div className="overflow-hidden rounded-xl border border-lilac-200/70 bg-white">
                 <img src={brandVisualsSample} alt="Brand visuals sample" className="aspect-[4/3] w-full object-cover" />
               </div>
             ) : (
-              <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-gradient-to-br from-purple-100 via-violet-50 to-white text-center text-sm font-medium text-purple-700">
+              <div className="flex aspect-[4/3] items-center justify-center rounded-xl bg-gradient-to-br from-lilac-100 via-lilac-50 to-white text-center text-sm font-medium text-lilac-700">
                 {item} Placeholder
               </div>
             )}

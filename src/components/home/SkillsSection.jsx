@@ -1,16 +1,18 @@
+import { IconMicRound, IconPalette, IconUsersRound } from '../icons/LineIcons'
+
 const skillCards = [
   {
-    icon: '🎨',
+    Icon: IconPalette,
     title: 'Creative',
     items: 'Photography, Videography, Editing, Graphic Design & Layouting',
   },
   {
-    icon: '🧠',
+    Icon: IconUsersRound,
     title: 'Leadership',
     items: 'Project Management, System Analysis',
   },
   {
-    icon: '🎤',
+    Icon: IconMicRound,
     title: 'Communication',
     items: 'On-Camera Presentation',
   },
@@ -18,17 +20,19 @@ const skillCards = [
 
 function SkillsSection() {
   return (
-    <section className="space-y-6">
-      <h2 className="text-2xl font-bold text-black md:text-3xl">Skills at a Glance</h2>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {skillCards.map((card) => (
+    <section className="space-y-8">
+      <h2 className="text-cute-gradient font-display text-2xl font-bold md:text-3xl">Skills at a Glance</h2>
+      <div className="grid gap-5 sm:grid-cols-3">
+        {skillCards.map(({ Icon, title, items }) => (
           <article
-            key={card.title}
-            className="animate-fadeInUp rounded-2xl border border-purple-100 bg-white p-6 shadow-sm transition duration-300 hover:scale-[1.02] hover:shadow-soft"
+            key={title}
+            className="card-cute animate-fadeInUp p-6 transition duration-300 hover:-translate-y-0.5 hover:shadow-diffuse-lg"
           >
-            <p className="text-2xl">{card.icon}</p>
-            <h3 className="mt-3 text-lg font-semibold text-purple-700">{card.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-700">{card.items}</p>
+            <div className="inline-flex rounded-2xl border border-lilac-200/60 bg-gradient-to-br from-lilac-50 to-white p-2.5 text-lilac-500">
+              <Icon className="h-7 w-7" aria-hidden />
+            </div>
+            <h3 className="text-cute-gradient mt-4 font-display text-lg font-bold">{title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-lilac-900/85">{items}</p>
           </article>
         ))}
       </div>

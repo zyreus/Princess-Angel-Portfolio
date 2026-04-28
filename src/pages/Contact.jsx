@@ -5,7 +5,7 @@ function Contact() {
   return (
     <section className="relative overflow-hidden py-10 md:py-14">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-20 top-10 h-52 w-52 rounded-full bg-purple-200/35 blur-3xl" />
+        <div className="absolute -left-20 top-10 h-52 w-52 rounded-full bg-accent-pink/25 blur-3xl" />
       </div>
       <SectionTitle
         eyebrow="Contact"
@@ -14,18 +14,24 @@ function Contact() {
       />
 
       <div className="grid gap-6">
-        <article className="animate-fadeInUp rounded-3xl border border-white/40 bg-white/70 p-6 shadow-soft backdrop-blur-sm">
-          <h3 className="text-xl font-semibold text-black">Contact Information</h3>
-          <div className="mt-4 space-y-3 text-sm text-gray-700">
+        <article className="card-cute animate-fadeInUp p-6 md:p-8">
+          <h3 className="text-cute-gradient font-display text-xl font-bold">Contact Information</h3>
+          <div className="mt-4 space-y-3 text-sm text-lilac-900/90">
             <p>
               Email:{' '}
-              <a href="mailto:princessangel.paslot@gmail.com" className="font-medium text-purple-700 hover:underline">
+              <a
+                href="mailto:princessangel.paslot@gmail.com"
+                className="font-medium text-lilac-700 underline decoration-lilac-200 underline-offset-2 transition hover:text-lilac-800"
+              >
                 princessangel.paslot@gmail.com
               </a>
             </p>
             <p>
               GitHub:{' '}
-              <a href="https://github.com/princesspaslot" className="font-medium text-purple-700 hover:underline">
+              <a
+                href="https://github.com/princesspaslot"
+                className="font-medium text-lilac-700 underline decoration-lilac-200 underline-offset-2 transition hover:text-lilac-800"
+              >
                 github.com/princesspaslot
               </a>
             </p>
@@ -33,7 +39,7 @@ function Contact() {
               LinkedIn:{' '}
               <a
                 href="https://www.linkedin.com/in/princess-angel-paslot-03568b315/"
-                className="font-medium text-purple-700 hover:underline"
+                className="font-medium text-lilac-700 underline decoration-lilac-200 underline-offset-2 transition hover:text-lilac-800"
               >
                 linkedin.com/in/princess-angel-paslot-03568b315
               </a>

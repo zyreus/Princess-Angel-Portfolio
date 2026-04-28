@@ -7,22 +7,19 @@ function AllWorks() {
   return (
     <section className="relative overflow-hidden py-10 md:py-14">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-10 right-0 h-56 w-56 rounded-full bg-violet-200/30 blur-3xl" />
+        <div className="absolute top-10 right-0 h-56 w-56 rounded-full bg-lilac-200/30 blur-3xl" />
       </div>
       <SectionTitle
         eyebrow="All Works"
         title="Complete Creative Collection"
         subtitle="Browse all creative categories in one dedicated page."
       />
-      <div className="mb-6">
-        <Link
-          to="/creative-portfolio"
-          className="inline-flex items-center rounded-xl border border-purple-200 px-5 py-3 text-sm font-semibold text-purple-700 transition hover:bg-purple-50"
-        >
-          Back to Creative Area
+      <div className="mb-8">
+        <Link to="/creative-portfolio" className="btn-ghost text-sm">
+          Back to creative portfolio
         </Link>
       </div>
-      <div className="grid gap-6">
+      <div className="grid gap-8">
         {creativeSections.map((section) => (
           <PortfolioCard
             key={section.title}
