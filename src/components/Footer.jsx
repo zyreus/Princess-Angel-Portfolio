@@ -21,9 +21,6 @@ function Footer() {
               <Sparkles className="h-5 w-5 text-lilac-400" aria-hidden />
               Princess Angel Paslot
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-7 text-lilac-900/75">
-              Creative and technical portfolio for full stack systems, UI/UX design, dashboards, analytics, and professional opportunities.
-            </p>
             <p className="mt-3 break-all text-sm text-lilac-800/80">{profile.email}</p>
           </div>
           <div className="flex flex-col gap-5 lg:items-end">

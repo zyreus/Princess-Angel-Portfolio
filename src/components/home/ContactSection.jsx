@@ -46,7 +46,6 @@ function ContactSection() {
       <SectionHeading
         eyebrow="Contact"
         title="Let’s build a polished system, dashboard, or brand experience."
-        subtitle="Send a project inquiry, recruitment message, or collaboration idea. I am open to opportunities and freelance work."
       />
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8">

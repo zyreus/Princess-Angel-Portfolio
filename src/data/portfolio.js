@@ -1,5 +1,12 @@
+import graphicDesignSampleTwo from '../assets/graphic-design-sample-2.png'
+import graphicDesignSampleThree from '../assets/graphic-design-sample-4.png'
+import graphicDesignSampleFour from '../assets/graphic-design-sample-5.png'
+import graphicDesignSampleSix from '../assets/graphic-design-sample-6.png'
 import graphicDesignSampleSeven from '../assets/graphic-design-sample-7.png'
 import projectDashboard from '../assets/mabuhightrack-dashboard.png'
+import photographySampleFour from '../assets/photography-sample-4.png'
+import photographySampleSix from '../assets/photography-sample-6.png'
+import videographySampleOne from '../assets/videography-sample-1.png'
 
 export const roles = ['Full Stack Developer', 'UI/UX Designer', 'Data Analyst', 'System Developer']
 
@@ -31,7 +38,40 @@ export const skills = [
   { category: 'Data Analytics', level: 88, tools: ['Dashboards', 'Metrics', 'Prediction Logic', 'Insights'] },
 ]
 
-export const projectCategories = ['All', 'Web Applications', 'AI Projects', 'Laravel Systems', 'UI/UX Designs', 'Analytics Projects']
+export const projectCategories = [
+  'All',
+  'Web Applications',
+  'AI Projects',
+  'Laravel Systems',
+  'UI/UX Designs',
+  'Analytics Projects',
+  'Graphic Design',
+  'Videos',
+  'Pictures',
+]
+
+const graphicDesignReviewLinks = [
+  { label: 'Graphic Design 1', url: graphicDesignSampleTwo },
+  { label: 'Graphic Design 2', url: graphicDesignSampleThree },
+  { label: 'Graphic Design 3', url: graphicDesignSampleFour },
+  { label: 'Graphic Design 4', url: graphicDesignSampleSix },
+  { label: 'Graphic Design 5', url: graphicDesignSampleSeven },
+]
+
+const videoReviewLinks = [
+  { label: 'Video Presentation', url: 'https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/view?usp=drive_link' },
+  { label: 'Video Edit 1', url: 'https://drive.google.com/file/d/1QQ1wOE3oFZuYJVHqZtzyWXBpjx9U5FhF/view?usp=drive_link' },
+  { label: 'Video Edit 2', url: 'https://drive.google.com/file/d/10kSXOTRBVNFB-oJDiknDZ6W6JIXPiUj1/view?t=3.995781' },
+  { label: 'Video Edit 3', url: 'https://drive.google.com/file/d/12Qde7pPZe7ZH33upBHhRxvwIQv1M_t-k/view' },
+]
+
+const pictureReviewLinks = [
+  { label: 'Picture Folder 1', url: 'https://drive.google.com/drive/folders/1-PZralj3lNZ_Vs65zwIQSzIGJ-8Y1T6h?usp=sharing' },
+  { label: 'Picture Folder 2', url: 'https://drive.google.com/drive/folders/10eGi-DSYmEZMACKuzP87WTcCCUyhLQ3d?usp=sharing' },
+  { label: 'Picture Folder 3', url: 'https://drive.google.com/drive/folders/10DDAhnCJRhVWTlqTVwOsDGK1F2TT6dyc?usp=drive_link' },
+  { label: 'Picture Folder 4', url: 'https://drive.google.com/drive/folders/10k-UPWPno_gARdFs3irYuunygJDUQvgA' },
+  { label: 'Picture Folder 5', url: 'https://drive.google.com/drive/folders/1-OsIoTTgRWGUr18m3UKPYHRvYFUobnlH' },
+]
 
 export const projects = [
   {
@@ -59,18 +99,6 @@ export const projects = [
     githubUrl: 'https://github.com/princesspaslot',
   },
   {
-    id: 'amalgated-lending',
-    title: 'Amalgated Lending Platform',
-    role: 'Full Stack Developer',
-    description: 'A lending workflow concept with borrower records, payment visibility, and admin-focused productivity screens.',
-    category: 'Web Applications',
-    image: projectDashboard,
-    stack: ['React', 'Laravel', 'MySQL', 'Dashboard UI'],
-    stats: ['Borrower records', 'Payment tracking', 'Admin workflows'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/princesspaslot',
-  },
-  {
     id: 'portfolio-design-system',
     title: 'Portfolio Design System',
     role: 'UI/UX Designer',
@@ -88,11 +116,63 @@ export const projects = [
     role: 'Data Analyst',
     description: 'A reporting dashboard concept for summarizing performance metrics, trends, and actionable operational insights.',
     category: 'Analytics Projects',
-    image: projectDashboard,
+    image: graphicDesignSampleSeven,
     stack: ['Data Analytics', 'Charts', 'Dashboards', 'Insights'],
     stats: ['Trend analysis', 'KPIs', 'Decision support'],
     liveUrl: '#',
     githubUrl: 'https://github.com/princesspaslot',
+  },
+  {
+    id: 'graphic-design-collection',
+    title: 'Graphic Design Collection',
+    role: 'Graphic Designer',
+    description: 'A collection of social media graphics, posters, layouts, and visual brand pieces for clear communication.',
+    category: 'Graphic Design',
+    image: graphicDesignSampleSix,
+    stack: ['Canva', 'Photoshop', 'Layouting', 'Typography'],
+    stats: ['Poster designs', 'Social graphics', 'Visual hierarchy'],
+    liveUrl: graphicDesignSampleTwo,
+    liveLabel: 'Review Designs',
+    reviewLinks: graphicDesignReviewLinks,
+  },
+  {
+    id: 'video-editing-showcase',
+    title: 'Video Presentation & Editing',
+    role: 'Video Editor, Presenter',
+    description: 'Edited and presented video content with storytelling, pacing, clean visuals, and audience-focused delivery.',
+    category: 'Videos',
+    image: videographySampleOne,
+    stack: ['CapCut', 'Premiere Pro', 'Storytelling', 'Presentation'],
+    stats: ['Video editing', 'On-camera delivery', 'Creative direction'],
+    liveUrl: 'https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/view?usp=drive_link',
+    liveLabel: 'Review Videos',
+    reviewLinks: videoReviewLinks,
+  },
+  {
+    id: 'photography-collection',
+    title: 'Pictures & Photography',
+    role: 'Photographer, Photo Editor',
+    description: 'A photography collection focused on composition, meaningful moments, lighting, and polished image editing.',
+    category: 'Pictures',
+    image: photographySampleFour,
+    stack: ['Photography', 'Photo Editing', 'Composition', 'Lighting'],
+    stats: ['Portraits', 'Event moments', 'Edited visuals'],
+    liveUrl: 'https://drive.google.com/drive/folders/1-PZralj3lNZ_Vs65zwIQSzIGJ-8Y1T6h?usp=sharing',
+    liveLabel: 'Review Pictures',
+    reviewLinks: pictureReviewLinks,
+  },
+  {
+    id: 'creative-media-gallery',
+    title: 'Creative Media Gallery',
+    role: 'Creative Portfolio',
+    description: 'A combined media showcase featuring graphic designs, video work, and picture-based storytelling.',
+    category: 'Pictures',
+    image: photographySampleSix,
+    stack: ['Graphics', 'Videos', 'Pictures', 'Portfolio Curation'],
+    stats: ['Creative samples', 'Visual storytelling', 'Portfolio presentation'],
+    liveUrl: 'https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/view?usp=drive_link',
+    liveLabel: 'Review Media',
+    reviewLinks: [...graphicDesignReviewLinks, ...videoReviewLinks, ...pictureReviewLinks],
   },
 ]
 

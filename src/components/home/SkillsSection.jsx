@@ -19,7 +19,6 @@ function SkillsSection() {
       <SectionHeading
         eyebrow="Skills"
         title="A balanced stack across product design, code, systems, and data."
-        subtitle="Recruiter-friendly skill groups with clear strengths, tools, and production-focused capabilities."
       />
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {skills.map((skill, index) => {

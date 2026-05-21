@@ -1,13 +1,27 @@
 import { useState } from 'react'
-import { Code2, ExternalLink, Layers3, X } from 'lucide-react'
+import { Code2, ExternalLink, Layers3, Link as LinkIcon, X } from 'lucide-react'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-function ProjectCard({ title, role, description, stack, category, image, stats = [], liveUrl, githubUrl }) {
+function ProjectCard({
+  title,
+  role,
+  description,
+  stack,
+  category,
+  image,
+  stats = [],
+  liveUrl,
+  liveLabel = 'Live',
+  githubUrl,
+  reviewLinks = [],
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const gallery = image ? [image, image, image] : []
+  const hasLiveUrl = liveUrl && liveUrl !== '#'
+  const primaryReviewLink = reviewLinks[0]
 
   return (
     <article className="group glass-card glass-card-hover overflow-hidden">
@@ -41,14 +55,24 @@ function ProjectCard({ title, role, description, stack, category, image, stats =
           <button type="button" onClick={() => setIsModalOpen(true)} className="premium-button-secondary px-4 py-2">
             Preview
           </button>
-          <a href={liveUrl} target="_blank" rel="noreferrer" className="premium-button px-4 py-2">
-            <ExternalLink className="h-4 w-4" />
-            Live
-          </a>
-          <a href={githubUrl} target="_blank" rel="noreferrer" className="premium-button-secondary px-4 py-2">
-            <Code2 className="h-4 w-4" />
-            GitHub
-          </a>
+          {hasLiveUrl ? (
+            <a href={liveUrl} target="_blank" rel="noreferrer" className="premium-button px-4 py-2">
+              <ExternalLink className="h-4 w-4" />
+              {liveLabel}
+            </a>
+          ) : null}
+          {!hasLiveUrl && primaryReviewLink ? (
+            <a href={primaryReviewLink.url} target="_blank" rel="noreferrer" className="premium-button px-4 py-2">
+              <ExternalLink className="h-4 w-4" />
+              Review
+            </a>
+          ) : null}
+          {githubUrl ? (
+            <a href={githubUrl} target="_blank" rel="noreferrer" className="premium-button-secondary px-4 py-2">
+              <Code2 className="h-4 w-4" />
+              GitHub
+            </a>
+          ) : null}
         </div>
       </div>
       {isModalOpen ? (
@@ -94,6 +118,25 @@ function ProjectCard({ title, role, description, stack, category, image, stats =
                   </span>
                 ))}
               </div>
+              {reviewLinks.length > 0 ? (
+                <div className="mt-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-lilac-600">Review Links</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {reviewLinks.map((link) => (
+                      <a
+                        key={`${title}-${link.label}`}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-lilac-200/70 bg-white px-3 py-2 text-xs font-semibold text-lilac-700 transition hover:border-lilac-300 hover:text-lilac-900"
+                      >
+                        <LinkIcon className="h-3.5 w-3.5" />
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
