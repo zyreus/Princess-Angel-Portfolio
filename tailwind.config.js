@@ -1,9 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    'bg-premium-background',
+    'bg-premium-background/70',
+    'bg-premium-primary',
+    'bg-premium-primary/20',
+    'bg-premium-primary/25',
+    'bg-premium-secondary',
+    'bg-premium-secondary/20',
+    'bg-premium-accent',
+    'bg-premium-accent/15',
+    'from-premium-background',
+    'via-premium-background/20',
+    'text-premium-text',
+    'text-premium-muted',
+    'text-premium-accent',
+    'border-premium-accent',
+    'bg-premium-accent/15',
+    'shadow-glow',
+    'shadow-cyan',
+  ],
   theme: {
     extend: {
       colors: {
+        premium: {
+          primary: '#7C3AED',
+          secondary: '#A855F7',
+          accent: '#06B6D4',
+          background: '#0F172A',
+          card: '#111827',
+          text: '#F8FAFC',
+          muted: '#CBD5E1',
+        },
         brand: {
           /** User-provided base secondary */
           primary: '#9333EA',
@@ -41,6 +70,8 @@ export default {
         sans: ['"Lato"', '"Open Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
+        glow: '0 0 50px rgba(124, 58, 237, 0.28)',
+        cyan: '0 0 42px rgba(6, 182, 212, 0.2)',
         soft: '0 14px 40px rgba(147, 51, 234, 0.14)',
         diffuse:
           '0 8px 32px rgba(147, 51, 234, 0.12), 0 2px 12px rgba(132, 29, 218, 0.07)',
@@ -61,11 +92,21 @@ export default {
           '0%, 100%': { opacity: '0.55' },
           '50%': { opacity: '0.9' },
         },
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         fadeInUp: 'fadeInUp 0.65s ease-out both',
         float: 'float 5.5s ease-in-out infinite',
         pulseGlow: 'pulseGlow 3.2s ease-in-out infinite',
+        gradientShift: 'gradientShift 12s ease infinite',
+        shimmer: 'shimmer 2.2s ease-in-out infinite',
       },
     },
   },

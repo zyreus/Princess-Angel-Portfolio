@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import DecorativeBackdrop from './components/DecorativeBackdrop'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import About from './pages/About'
-import AllWorks from './pages/AllWorks'
-import Contact from './pages/Contact'
-import CreativePortfolio from './pages/CreativePortfolio'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
+
+const About = lazy(() => import('./pages/About'))
+const Achievements = lazy(() => import('./pages/Achievements'))
+const AllWorks = lazy(() => import('./pages/AllWorks'))
+const Certificates = lazy(() => import('./pages/Certificates'))
+const Contact = lazy(() => import('./pages/Contact'))
+const CreativePortfolio = lazy(() => import('./pages/CreativePortfolio'))
+const Home = lazy(() => import('./pages/Home'))
+const Projects = lazy(() => import('./pages/Projects'))
 
 function App() {
   const location = useLocation()
@@ -25,9 +28,7 @@ function App() {
         <div className="animate-fadeInUp space-y-4">
           <p className="eyebrow">Portfolio</p>
           <h1 className="font-display text-3xl font-bold sm:text-4xl">
-            <span className="bg-gradient-to-r from-lilac-700 via-lilac-600 to-lilac-400 bg-clip-text text-transparent">
-              Princess Angel Paslot
-            </span>
+            <span className="gradient-text">Princess Angel Paslot</span>
           </h1>
           <div className="mx-auto flex justify-center gap-2 text-lilac-400/70" aria-hidden>
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lilac-400" />
@@ -40,23 +41,27 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-lilac-50/90 to-accent-sky/20">
+    <div className="premium-shell">
       <DecorativeBackdrop />
 
       <div className="relative z-10">
         <Navbar />
         <main className="mx-auto w-full max-w-6xl px-4 pb-12 md:px-8 md:pb-16">
-          <div key={location.pathname} className="animate-fadeInUp">
-            <Routes location={location}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/creative-portfolio" element={<CreativePortfolio />} />
-              <Route path="/all-works" element={<AllWorks />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </div>
+          <Suspense fallback={<div className="py-24 text-center text-lilac-700">Loading page...</div>}>
+            <div key={location.pathname} className="animate-fadeInUp">
+              <Routes location={location}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/creative-portfolio" element={<CreativePortfolio />} />
+                <Route path="/all-works" element={<AllWorks />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/certificates" element={<Certificates />} />
+                <Route path="/achievements" element={<Achievements />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </div>
+          </Suspense>
         </main>
         <Footer />
       </div>

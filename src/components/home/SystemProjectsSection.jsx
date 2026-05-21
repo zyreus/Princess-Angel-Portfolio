@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const systems = ['Medical Triage System', 'Mental Health Monitoring System']
+const systems = ['Medical Triage System']
 
 function SystemProjectsSection() {
   return (

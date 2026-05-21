@@ -1,18 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { ArrowDownToLine, BriefcaseBusiness, Code2, Mail, Rocket, Sparkles } from 'lucide-react'
 import profileImage from '../../assets/princess-profile.png'
-import { IconHeartSm, IconStarSm } from '../icons/LineIcons'
-
-const roles = [
-  'Photographer',
-  'Videographer',
-  'Video Presenter',
-  'Editor',
-  'Graphic Designer',
-  'Layout Artist',
-  'Project Manager',
-  'System Analyst',
-]
+import { profile, roles, stats } from '../../data/portfolio'
 
 function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0)
@@ -26,52 +17,110 @@ function HeroSection() {
   }, [])
 
   return (
-    <section className="relative grid items-center gap-8 overflow-hidden rounded-3xl border border-lilac-200/50 bg-gradient-to-br from-white via-lilac-50/80 to-accent-sky/25 p-6 shadow-diffuse sm:p-8 md:grid-cols-2 md:gap-10 md:p-10">
+    <section
+      id="home"
+      className="relative grid items-center gap-8 overflow-hidden rounded-3xl border border-lilac-200/50 bg-gradient-to-br from-white via-lilac-50/80 to-accent-sky/25 p-6 shadow-diffuse sm:p-8 md:grid-cols-2 md:gap-10 md:p-10"
+    >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 left-1/3 h-52 w-52 rounded-full bg-lilac-200/40 blur-3xl" />
         <div className="absolute bottom-0 -left-16 h-52 w-52 rounded-full bg-accent-pink/30 blur-3xl" />
         <div className="absolute top-1/3 -right-20 h-56 w-56 rounded-full bg-accent-sky/35 blur-3xl" />
       </div>
-      <div className="animate-fadeInUp space-y-5 md:space-y-6">
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        className="relative space-y-6"
+      >
+        <div className="premium-pill w-fit">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.8)]" />
+          Available for freelance and developer roles
+        </div>
         <p className="eyebrow">Creative Technologist</p>
-        <h1 className="font-display text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
-          Hi, I&apos;m{' '}
-          <span className="bg-gradient-to-r from-lilac-700 via-lilac-600 to-lilac-400 bg-clip-text text-transparent">
-            Princess Angel Paslot
-          </span>
+        <h1 className="max-w-3xl font-display text-3xl font-bold leading-tight text-lilac-900 sm:text-4xl md:text-5xl">
+          Hi, I&apos;m <span className="gradient-text">Princess Angel Paslot</span>
         </h1>
-        <p className="text-sm leading-relaxed text-lilac-900/90 md:text-base">
-          <span className="mr-2 text-lilac-700/85">Role:</span>
-          <span key={roles[roleIndex]} className="text-cute-gradient font-semibold transition-opacity duration-500">
+        <p className="text-base leading-8 text-lilac-900/85 sm:text-lg">
+          I create aesthetic visuals and build smart digital systems as a{' '}
+          <span key={roles[roleIndex]} className="font-bold text-lilac-700">
             {roles[roleIndex]}
-          </span>
-        </p>
-        <p className="max-w-xl leading-relaxed text-lilac-900/90">
-          I create aesthetic visuals and build smart digital systems—blending creativity, communication, and technology.
+          </span>.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link to="/creative-portfolio" className="btn-gradient w-full sm:w-auto">
-            View My Work
+          <Link to="/projects" className="premium-button w-full sm:w-auto">
+            <Rocket className="h-4 w-4" />
+            View Projects
           </Link>
-          <Link to="/projects" className="btn-ghost w-full sm:w-auto">
-            Explore Projects
+          <a href="/resume.pdf" className="premium-button-secondary w-full sm:w-auto">
+            <ArrowDownToLine className="h-4 w-4" />
+            Download Resume
+          </a>
+          <Link to="/contact" className="premium-button-secondary w-full sm:w-auto">
+            <Mail className="h-4 w-4" />
+            Hire Me
           </Link>
         </div>
-        <p className="flex items-center gap-2 text-xs text-lilac-500/90">
-          <IconStarSm className="h-4 w-4 shrink-0" aria-hidden />
-          <span>Soft, thoughtful design with a technical edge</span>
-          <IconHeartSm className="h-3.5 w-3.5 shrink-0 text-accent-pink-deep/70" aria-hidden />
-        </p>
-      </div>
 
-      <div className="relative mx-auto w-full max-w-md animate-fadeInUp rounded-3xl border border-lilac-200/60 bg-white/70 p-3 shadow-diffuse sm:p-4">
-        <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-r from-lilac-300/45 to-lilac-400/35 blur-2xl animate-pulseGlow" />
-        <img
-          src={profileImage}
-          alt="Princess Angel Paslot"
-          className="aspect-square w-full rounded-2xl object-cover shadow-[0_12px_40px_rgba(180,156,248,0.22)] animate-float"
-        />
-      </div>
+        <div className="grid gap-3 pt-2 sm:grid-cols-4">
+          {stats.map((item) => (
+            <div key={item.label} className="rounded-2xl border border-lilac-200/60 bg-white/70 p-4">
+              <p className="text-2xl font-bold text-lilac-800">{item.value}</p>
+              <p className="mt-1 text-xs font-medium text-lilac-700/80">{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-3 text-lilac-700">
+          <a href={profile.github} className="premium-pill transition hover:text-lilac-900" target="_blank" rel="noreferrer">
+            <Code2 className="h-4 w-4" />
+            GitHub
+          </a>
+          <a href={profile.linkedin} className="premium-pill transition hover:text-lilac-900" target="_blank" rel="noreferrer">
+            <BriefcaseBusiness className="h-4 w-4" />
+            LinkedIn
+          </a>
+          <a href={`mailto:${profile.email}`} className="premium-pill transition hover:text-lilac-900">
+            <Mail className="h-4 w-4" />
+            Gmail
+          </a>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94, y: 28 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 0.12, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative mx-auto w-full max-w-md"
+      >
+        <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-lilac-300/45 to-lilac-400/35 blur-3xl" />
+        <div className="relative rounded-3xl border border-lilac-200/60 bg-white/70 p-3 shadow-diffuse backdrop-blur-sm">
+          <img
+            src={profileImage}
+            alt="Princess Angel Paslot"
+            loading="eager"
+            className="aspect-square w-full animate-float rounded-2xl object-cover shadow-[0_12px_40px_rgba(180,156,248,0.22)]"
+          />
+        </div>
+        {['React', 'Laravel', 'UX', 'Data'].map((item, index) => (
+          <span
+            key={item}
+            className={`premium-pill absolute animate-float bg-white/90 ${
+              index === 0
+                ? '-left-4 top-10'
+                : index === 1
+                  ? '-right-3 top-24'
+                  : index === 2
+                    ? 'bottom-14 left-0'
+                    : 'bottom-5 right-8'
+            }`}
+            style={{ animationDelay: `${index * 0.35}s` }}
+          >
+            <Sparkles className="h-3.5 w-3.5 text-lilac-500" />
+            {item}
+          </span>
+        ))}
+      </motion.div>
     </section>
   )
 }
