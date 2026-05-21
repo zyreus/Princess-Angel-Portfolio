@@ -38,7 +38,7 @@ function ProjectsShowcaseSection({ compact = false }) {
           </button>
         ))}
       </div>
-      <motion.div layout className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <motion.div layout className="flex flex-wrap justify-center gap-6">
         <AnimatePresence mode="popLayout">
           {visibleProjects.map((project) => (
             <motion.div
@@ -48,6 +48,7 @@ function ProjectsShowcaseSection({ compact = false }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.24 }}
+              className="flex w-full md:w-[calc(50%-0.75rem)] xl:w-[calc(33.333%-1rem)]"
             >
               <ProjectCard {...project} />
             </motion.div>

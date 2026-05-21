@@ -24,7 +24,7 @@ function ProjectCard({
   const primaryReviewLink = reviewLinks[0]
 
   return (
-    <article className="group glass-card glass-card-hover overflow-hidden">
+    <article className="group glass-card glass-card-hover flex h-full w-full flex-col overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-lilac-50">
         {image ? (
           <img
@@ -37,7 +37,7 @@ function ProjectCard({
         <div className="absolute inset-0 bg-gradient-to-t from-lilac-900/55 via-lilac-900/10 to-transparent" />
         <span className="premium-pill absolute left-4 top-4 bg-white/90">{category}</span>
       </div>
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-lilac-600">
           <Layers3 className="h-3.5 w-3.5" />
           {role}
@@ -51,7 +51,7 @@ function ProjectCard({
             </span>
           ))}
         </div>
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-auto flex flex-wrap gap-3 pt-6">
           <button type="button" onClick={() => setIsModalOpen(true)} className="premium-button-secondary px-4 py-2">
             Preview
           </button>
