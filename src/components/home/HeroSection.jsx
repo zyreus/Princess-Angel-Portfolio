@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowDownToLine, BriefcaseBusiness, Code2, Mail, Rocket, Sparkles } from 'lucide-react'
+import { ArrowDownToLine, BriefcaseBusiness, Code2, Mail, Rocket } from 'lucide-react'
 import profileImage from '../../assets/princess-profile.png'
 import { profile, roles, stats } from '../../data/portfolio'
 
@@ -102,24 +102,6 @@ function HeroSection() {
             className="aspect-square w-full animate-float rounded-2xl object-cover shadow-[0_12px_40px_rgba(180,156,248,0.22)]"
           />
         </div>
-        {['React', 'Laravel', 'UX', 'Data'].map((item, index) => (
-          <span
-            key={item}
-            className={`premium-pill absolute animate-float bg-white/90 ${
-              index === 0
-                ? '-left-4 top-10'
-                : index === 1
-                  ? '-right-3 top-24'
-                  : index === 2
-                    ? 'bottom-14 left-0'
-                    : 'bottom-5 right-8'
-            }`}
-            style={{ animationDelay: `${index * 0.35}s` }}
-          >
-            <Sparkles className="h-3.5 w-3.5 text-lilac-500" />
-            {item}
-          </span>
-        ))}
       </motion.div>
     </section>
   )
