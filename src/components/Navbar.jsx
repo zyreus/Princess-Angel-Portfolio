@@ -1,10 +1,11 @@
-import { Menu, Sparkles, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import profileImage from '../assets/princess-profile.png'
 
 const navLinks = [
   { label: 'Home', path: '/', section: 'home' },
-  { label: 'About', path: '/about', section: 'about' },
+  { label: 'About me', path: '/about', section: 'about' },
   { label: 'Projects', path: '/projects', section: 'projects' },
   { label: 'Resume', path: '/resume' },
   { label: 'Certificates', path: '/certificates' },
@@ -54,8 +55,8 @@ function Navbar() {
       <nav className="mx-auto w-full max-w-6xl px-4 py-3.5 md:px-8">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="group flex items-center gap-2 text-sm font-bold tracking-wide text-lilac-800 sm:text-base">
-            <span className="grid h-9 w-9 place-items-center rounded-2xl bg-gradient-to-br from-lilac-300 to-lilac-500 text-white shadow-diffuse">
-              <Sparkles className="h-4 w-4" aria-hidden />
+            <span className="grid h-9 w-9 overflow-hidden rounded-2xl border border-lilac-200/70 bg-white shadow-diffuse">
+              <img src={profileImage} alt="Princess Angel Paslot" className="h-full w-full object-cover" />
             </span>
             <span>Princess Angel</span>
           </Link>

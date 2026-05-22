@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUp, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Home, Mail, MapPin, Send, Sparkles, Star, UserRound } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import profileImage from '../assets/princess-profile.png'
 import { profile } from '../data/portfolio'
 
 const infoCards = [
@@ -56,8 +57,8 @@ const itemVariants = {
 
 function LogoMark({ className = 'h-12 w-12' }) {
   return (
-    <span className={`${className} inline-flex shrink-0 items-center justify-center rounded-2xl border border-[#E9DDFD] bg-white/80 text-[#8B5CF6] shadow-[0_12px_32px_rgba(139,92,246,0.14)] backdrop-blur-xl`}>
-      <Sparkles className="h-5 w-5" aria-hidden />
+    <span className={`${className} inline-flex shrink-0 overflow-hidden rounded-2xl border border-[#E9DDFD] bg-white/80 shadow-[0_12px_32px_rgba(139,92,246,0.14)] backdrop-blur-xl`}>
+      <img src={profileImage} alt="Princess Angel Paslot" className="h-full w-full object-cover" />
     </span>
   )
 }

@@ -12,6 +12,12 @@ const socials = [
   { label: 'Gmail', href: `mailto:${profile.email}`, icon: Mail },
 ]
 
+const hasEmailJsConfig = Boolean(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID
+    && import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    && import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+)
+
 function ContactSection() {
   const [status, setStatus] = useState('')
 
@@ -20,16 +26,19 @@ function ContactSection() {
     const form = event.currentTarget
 
     try {
-      if (import.meta.env.VITE_EMAILJS_SERVICE_ID && import.meta.env.VITE_EMAILJS_TEMPLATE_ID && import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
-        await emailjs.sendForm(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          form,
-          { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
-        )
+      if (!hasEmailJsConfig) {
+        setStatus('EmailJS is not configured yet. Add the EmailJS environment variables to enable direct delivery.')
+        return
       }
 
-      setStatus('Message ready. EmailJS keys can be added in environment variables for live delivery.')
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
+      )
+
+      setStatus(`Message sent directly to ${profile.email}.`)
       form.reset()
     } catch {
       setStatus('Something went wrong. Please email me directly instead.')
@@ -49,6 +58,7 @@ function ContactSection() {
       />
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8">
+          <input type="hidden" name="to_email" value={profile.email} />
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="text-sm font-semibold text-lilac-800">
               Name
