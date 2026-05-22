@@ -142,16 +142,30 @@ function buildEmailTemplate({ name, email, message }) {
   `
 }
 
-async function sendEmail(contact) {
-  const emailUser = process.env.EMAIL_USER
-  const emailPass = process.env.EMAIL_PASS
+function getEmailCredentials() {
+  const emailUser = process.env.EMAIL_USER?.trim()
+  const emailPass = process.env.EMAIL_PASS?.replace(/\s/g, '')
 
   if (!emailUser || !emailPass) {
-    throw new Error('Missing EMAIL_USER or EMAIL_PASS environment variables.')
+    return { error: 'config' }
   }
 
+  return { emailUser, emailPass }
+}
+
+async function sendEmail(contact) {
+  const credentials = getEmailCredentials()
+
+  if (credentials.error) {
+    throw new Error('config')
+  }
+
+  const { emailUser, emailPass } = credentials
+
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: emailUser,
       pass: emailPass,
@@ -194,6 +208,12 @@ export default async function handler(request, response) {
     response.status(200).json({ message: 'Message sent successfully!' })
   } catch (error) {
     console.error('Send email API failed:', error)
+
+    if (error.message === 'config') {
+      response.status(500).json({ error: 'Email service is not configured on the server.' })
+      return
+    }
+
     response.status(500).json({ error: 'Failed to send message. Please try again later.' })
   }
 }
