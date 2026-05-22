@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Home', path: '/', section: 'home' },
   { label: 'About', path: '/about', section: 'about' },
   { label: 'Projects', path: '/projects', section: 'projects' },
+  { label: 'Resume', path: '/resume' },
   { label: 'Certificates', path: '/certificates' },
   { label: 'Achievements', path: '/achievements' },
   { label: 'Contact', path: '/contact', section: 'contact' },

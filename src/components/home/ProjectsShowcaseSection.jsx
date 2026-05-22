@@ -16,29 +16,35 @@ function ProjectsShowcaseSection({ compact = false }) {
   }, [activeCategory, compact])
 
   return (
-    <MotionSection id="projects" className="space-y-9">
-      <SectionHeading
-        eyebrow="Projects"
-        title="Advanced project showcase for recruiters and clients."
-        subtitle="Filter by category, preview details, scan the tech stack, and jump to live/demo links from modern responsive cards."
-      />
-      <div className="flex flex-wrap justify-center gap-2">
-        {projectCategories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            onClick={() => setActiveCategory(category)}
-            className={`rounded-full border px-4 py-2 text-sm font-bold transition ${
-              activeCategory === category
-                ? 'border-lilac-300 bg-lilac-100/80 text-lilac-800 shadow-diffuse'
-                : 'border-lilac-200/70 bg-white/80 text-lilac-700 hover:border-lilac-300 hover:text-lilac-900'
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+    <MotionSection id="projects" className="space-y-8 font-['Inter'] sm:space-y-10">
+      <div className="mx-auto max-w-3xl text-center">
+        <SectionHeading
+          eyebrow="Projects"
+          title="Premium project showcase for recruiters and clients."
+          subtitle="Explore polished project cards with balanced previews, focused details, clean stacks, and direct action links."
+        />
       </div>
-      <motion.div layout className="flex flex-wrap justify-center gap-6">
+      <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-2 rounded-[1.75rem] border border-slate-200/80 bg-white/70 p-2 shadow-[0_18px_54px_rgba(76,29,149,0.07),inset_0_1px_0_rgba(255,255,255,0.82)] backdrop-blur-xl">
+        {projectCategories.map((category) => {
+          const isActive = activeCategory === category
+
+          return (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setActiveCategory(category)}
+              className={`rounded-full border px-3.5 py-2 text-xs font-extrabold tracking-[-0.01em] transition duration-300 sm:px-4 sm:text-sm ${
+                isActive
+                  ? 'border-lilac-300 bg-lilac-100 text-lilac-800 shadow-[0_12px_30px_rgba(124,58,237,0.12)]'
+                  : 'border-transparent bg-white/60 text-slate-600 hover:-translate-y-0.5 hover:border-lilac-200/80 hover:bg-white hover:text-lilac-800'
+              }`}
+            >
+              {category}
+            </button>
+          )
+        })}
+      </div>
+      <motion.div layout className="grid auto-rows-fr grid-cols-1 items-stretch gap-5 md:grid-cols-2 md:gap-6 xl:grid-cols-3 xl:gap-7">
         <AnimatePresence mode="popLayout">
           {visibleProjects.map((project) => (
             <motion.div
@@ -48,7 +54,7 @@ function ProjectsShowcaseSection({ compact = false }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.24 }}
-              className="flex w-full md:w-[calc(50%-0.75rem)] xl:w-[calc(33.333%-1rem)]"
+              className="flex h-full min-w-0"
             >
               <ProjectCard {...project} />
             </motion.div>

@@ -12,6 +12,7 @@ const Contact = lazy(() => import('./pages/Contact'))
 const CreativePortfolio = lazy(() => import('./pages/CreativePortfolio'))
 const Home = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
+const Resume = lazy(() => import('./pages/Resume'))
 
 function App() {
   const location = useLocation()
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/creative-portfolio" element={<CreativePortfolio />} />
                 <Route path="/all-works" element={<AllWorks />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/resume" element={<Resume />} />
                 <Route path="/certificates" element={<Certificates />} />
                 <Route path="/achievements" element={<Achievements />} />
                 <Route path="/contact" element={<Contact />} />

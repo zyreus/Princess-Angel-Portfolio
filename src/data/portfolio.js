@@ -6,7 +6,6 @@ import graphicDesignSampleSeven from '../assets/graphic-design-sample-7.png'
 import projectDashboard from '../assets/mabuhightrack-dashboard.png'
 import photographySampleFour from '../assets/photography-sample-4.png'
 import photographySampleSix from '../assets/photography-sample-6.png'
-import videographySampleOne from '../assets/videography-sample-1.png'
 
 export const roles = ['Full Stack Developer', 'UI/UX Designer', 'Data Analyst', 'System Developer']
 
@@ -81,7 +80,7 @@ export const projects = [
     category: 'AI Projects',
     image: projectDashboard,
     stack: ['React', 'Node.js', 'Analytics', 'AI Prediction'],
-    stats: ['Prediction insights', 'Role-based dashboards', 'Academic monitoring'],
+    stats: ['Predictive Insights', 'Role-based Dashboard', 'Academic Monitoring'],
     liveUrl: '#',
     githubUrl: 'https://github.com/princesspaslot',
   },
@@ -95,19 +94,7 @@ export const projects = [
     stack: ['Web App', 'Filament-Laravel', 'Healthcare', 'Data Logic'],
     stats: ['Priority rules', 'Queue management', 'OJT delivery'],
     liveUrl: '#',
-    githubUrl: 'https://github.com/princesspaslot',
-  },
-  {
-    id: 'analytics-dashboard',
-    title: 'Performance Analytics Dashboard',
-    role: 'Data Analyst',
-    description: 'A reporting dashboard concept for summarizing performance metrics, trends, and actionable operational insights.',
-    category: 'Analytics Projects',
-    image: graphicDesignSampleSeven,
-    stack: ['Data Analytics', 'Charts', 'Dashboards', 'Insights'],
-    stats: ['Trend analysis', 'KPIs', 'Decision support'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/princesspaslot',
+    githubUrl: 'https://github.com/luvjenni/MedTriage',
   },
   {
     id: 'graphic-design-collection',
@@ -128,7 +115,7 @@ export const projects = [
     role: 'Video Editor, Presenter',
     description: 'Edited and presented video content with storytelling, pacing, clean visuals, and audience-focused delivery.',
     category: 'Videos',
-    image: videographySampleOne,
+    image: 'https://drive.google.com/thumbnail?id=10kSXOTRBVNFB-oJDiknDZ6W6JIXPiUj1&sz=w1200',
     stack: ['CapCut', 'Premiere Pro', 'Storytelling', 'Presentation'],
     stats: ['Video editing', 'On-camera delivery', 'Creative direction'],
     liveUrl: 'https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/view?usp=drive_link',

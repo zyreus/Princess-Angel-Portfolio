@@ -27,7 +27,7 @@ function About() {
             title="Creative technologist with full stack, UI/UX, and analytics strengths."
             subtitle="I create user-focused digital solutions that balance visual quality, technical reliability, and meaningful business context."
           />
-          <div className="mt-8 space-y-4 text-sm leading-8 text-lilac-900/80 md:text-base">
+          <div className="mt-8 space-y-4 text-justify text-sm leading-8 text-lilac-900/80 md:text-base">
             <p>
               I am a multidisciplinary IT student and developer with experience across system development, project management,
               creative media, and communication. I care about interfaces that feel premium, but I care just as much about

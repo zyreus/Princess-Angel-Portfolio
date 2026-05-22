@@ -52,10 +52,10 @@ function HeroSection() {
             <Rocket className="h-4 w-4" />
             View Projects
           </Link>
-          <a href="/resume.pdf" className="premium-button-secondary w-full sm:w-auto">
+          <Link to="/resume" className="premium-button-secondary w-full sm:w-auto">
             <ArrowDownToLine className="h-4 w-4" />
-            Download Resume
-          </a>
+            View Resume
+          </Link>
           <Link to="/contact" className="premium-button-secondary w-full sm:w-auto">
             <Mail className="h-4 w-4" />
             Hire Me

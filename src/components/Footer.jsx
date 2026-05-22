@@ -1,9 +1,7 @@
-import { ArrowRight, ArrowUp, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Heart, Home, Mail, MapPin, Send, Sparkles, Star, UserRound } from 'lucide-react'
+import { ArrowRight, ArrowUp, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Home, Mail, MapPin, Send, Sparkles, Star, UserRound } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { profile } from '../data/portfolio'
-
-const tagline = 'Crafting digital experiences with creativity and code.'
 
 const infoCards = [
   { title: 'Email', description: profile.email, icon: Mail },
@@ -136,10 +134,6 @@ function Footer() {
                 </div>
               </div>
 
-              <p className="max-w-sm text-sm leading-7 text-[#6B7280]">
-                {tagline}
-              </p>
-
               <div className="h-px w-full bg-gradient-to-r from-transparent via-[#E9DDFD] to-transparent" />
 
               <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -223,7 +217,7 @@ function Footer() {
           </div>
 
           <motion.div variants={itemVariants} className="relative mt-10 border-t border-[#E9DDFD] pt-6">
-            <div className="grid gap-6 md:grid-cols-3 md:items-center">
+            <div className="grid gap-6 md:grid-cols-2 md:items-center">
               <div className="flex items-start gap-3">
                 <LogoMark className="h-11 w-11 rounded-xl" />
                 <div>
@@ -234,13 +228,6 @@ function Footer() {
                     Crafting digital experiences with <span className="font-bold text-[#8B5CF6]">creativity</span> and <span className="font-bold text-[#8B5CF6]">code</span>.
                   </p>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-sm font-semibold text-[#6B7280] md:justify-center">
-                <Heart className="h-4 w-4 fill-[#A78BFA]/30 text-[#8B5CF6]" aria-hidden />
-                <span>
-                  Built with <span className="text-[#8B5CF6]">Next.js</span> &amp; <span className="text-[#8B5CF6]">Tailwind CSS</span>
-                </span>
               </div>
 
               <div className="flex items-center gap-3 md:justify-end">
