@@ -58,7 +58,7 @@ function Navbar() {
             <span className="grid h-9 w-9 overflow-hidden rounded-2xl border border-lilac-200/70 bg-white shadow-diffuse">
               <img src={profileImage} alt="Princess Angel Paslot" className="h-full w-full object-cover" />
             </span>
-            <span>Princess Angel</span>
+            <span>Princess Angel R. Paslot</span>
           </Link>
           <div className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
