@@ -23,6 +23,23 @@ function App() {
     return () => clearTimeout(timeoutId)
   }, [])
 
+  useEffect(() => {
+    if (isLoading) return undefined
+
+    const frameId = window.requestAnimationFrame(() => {
+      const hashTarget = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null
+
+      if (hashTarget) {
+        hashTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    })
+
+    return () => window.cancelAnimationFrame(frameId)
+  }, [isLoading, location.hash, location.pathname, location.search])
+
   if (isLoading) {
     return (
       <div className="fixed inset-0 z-[200] flex items-center justify-center bg-gradient-to-br from-white via-lilac-50 to-accent-pink/30 p-6 text-center">

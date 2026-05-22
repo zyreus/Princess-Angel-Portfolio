@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import profileImage from '../assets/princess-profile.png'
+import profileImage from '../assets/about-profile.png'
 
 const navLinks = [
   { label: 'Home', path: '/', section: 'home' },
