@@ -1,7 +1,13 @@
 {
+  "functions": {
+    "api/send-email.js": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/.*).*)",
       "destination": "/index.html"
     }
   ]
