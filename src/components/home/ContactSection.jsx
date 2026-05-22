@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import emailjs from '@emailjs/browser'
-import { BriefcaseBusiness, CheckCircle2, Code2, Copy, Mail, MessageCircle, Send } from 'lucide-react'
+import { AlertCircle, BriefcaseBusiness, CheckCircle2, Code2, Copy, LoaderCircle, Mail, MessageCircle, Send } from 'lucide-react'
 import MotionSection from '../shared/MotionSection'
 import SectionHeading from '../shared/SectionHeading'
 import { profile } from '../../data/portfolio'
@@ -12,43 +11,88 @@ const socials = [
   { label: 'Gmail', href: `mailto:${profile.email}`, icon: Mail },
 ]
 
-const hasEmailJsConfig = Boolean(
-  import.meta.env.VITE_EMAILJS_SERVICE_ID
-    && import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-    && import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-)
+const initialFormData = {
+  name: '',
+  email: '',
+  message: '',
+}
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function ContactSection() {
-  const [status, setStatus] = useState('')
+  const [formData, setFormData] = useState(initialFormData)
+  const [status, setStatus] = useState({ type: '', message: '' })
+  const [isSending, setIsSending] = useState(false)
+
+  const validateForm = () => {
+    const name = formData.name.trim()
+    const email = formData.email.trim()
+    const message = formData.message.trim()
+
+    if (!name || !email || !message) {
+      return 'Please fill out your name, email, and message.'
+    }
+
+    if (!emailPattern.test(email)) {
+      return 'Please enter a valid email address.'
+    }
+
+    return ''
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormData((current) => ({ ...current, [name]: value }))
+
+    if (status.type === 'error') {
+      setStatus({ type: '', message: '' })
+    }
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const form = event.currentTarget
+    const validationError = validateForm()
+
+    if (validationError) {
+      setStatus({ type: 'error', message: validationError })
+      return
+    }
+
+    setIsSending(true)
+    setStatus({ type: 'loading', message: 'Sending your message...' })
 
     try {
-      if (!hasEmailJsConfig) {
-        setStatus('EmailJS is not configured yet. Add the EmailJS environment variables to enable direct delivery.')
-        return
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        }),
+      })
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message. Please try again.')
       }
 
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        form,
-        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
-      )
-
-      setStatus(`Message sent directly to ${profile.email}.`)
-      form.reset()
-    } catch {
-      setStatus('Something went wrong. Please email me directly instead.')
+      setStatus({ type: 'success', message: 'Message sent successfully! I’ll get back to you soon.' })
+      setFormData(initialFormData)
+    } catch (error) {
+      setStatus({ type: 'error', message: error.message || 'Something went wrong. Please email me directly instead.' })
+    } finally {
+      setIsSending(false)
     }
   }
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText(profile.email)
-    setStatus('Email copied to clipboard.')
+    setStatus({ type: 'success', message: 'Email copied to clipboard.' })
   }
+
+  const isSuccess = status.type === 'success'
+  const isError = status.type === 'error'
 
   return (
     <MotionSection id="contact" className="space-y-9">
@@ -58,26 +102,37 @@ function ContactSection() {
       />
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8">
-          <input type="hidden" name="to_email" value={profile.email} />
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="text-sm font-semibold text-lilac-800">
               Name
-              <input name="from_name" required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="Your name" />
+              <input name="name" value={formData.name} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="Your name" />
             </label>
             <label className="text-sm font-semibold text-lilac-800">
               Email
-              <input type="email" name="reply_to" required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="you@example.com" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="you@example.com" />
             </label>
           </div>
           <label className="mt-4 block text-sm font-semibold text-lilac-800">
             Message
-            <textarea name="message" required rows="6" className="mt-2 w-full resize-none rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="Tell me about your project or role..." />
+            <textarea name="message" value={formData.message} onChange={handleChange} required rows="6" className="mt-2 w-full resize-none rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="Tell me about your project or role..." />
           </label>
-          <button type="submit" className="premium-button mt-5 w-full sm:w-auto">
-            <Send className="h-4 w-4" />
-            Send Message
+          <button
+            type="submit"
+            disabled={isSending}
+            className={`premium-button mt-5 w-full transition disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto ${isSuccess ? 'scale-[1.02]' : ''} ${isError ? 'ring-2 ring-red-200' : ''}`}
+          >
+            {isSending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : isSuccess ? <CheckCircle2 className="h-4 w-4 animate-bounce text-emerald-100" /> : <Send className="h-4 w-4" />}
+            {isSending ? 'Sending...' : isSuccess ? 'Message Sent' : isError ? 'Try Again' : 'Send Message'}
           </button>
-          {status ? <p className="mt-4 flex items-start gap-2 text-sm text-lilac-800/80"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />{status}</p> : null}
+          {status.message ? (
+            <p
+              className={`mt-4 flex items-start gap-2 rounded-2xl border px-4 py-3 text-sm transition ${isError ? 'border-red-200 bg-red-50 text-red-700' : 'border-emerald-200 bg-emerald-50 text-emerald-700'}`}
+              aria-live="polite"
+            >
+              {isError ? <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" /> : <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />}
+              {status.message}
+            </p>
+          ) : null}
         </form>
 
         <aside className="space-y-4">
