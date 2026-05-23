@@ -1,4 +1,5 @@
 import AboutPreviewSection from '../components/home/AboutPreviewSection'
+import CertificatesSection from '../components/home/CertificatesSection'
 import ContactSection from '../components/home/ContactSection'
 import HeroSection from '../components/home/HeroSection'
 import SkillsSection from '../components/home/SkillsSection'
@@ -9,6 +10,7 @@ function Home() {
       <HeroSection />
       <AboutPreviewSection />
       <SkillsSection />
+      <CertificatesSection />
       <ContactSection />
     </div>
   )

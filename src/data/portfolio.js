@@ -151,11 +151,59 @@ export const projects = [
 ]
 
 export const certificates = [
-  { title: 'Full Stack Development Training', issuer: 'Professional Training Program', date: '2025', group: 'Web Development Certifications', skills: ['React', 'APIs', 'Deployment'], verificationUrl: '#' },
-  { title: 'Programming Foundations', issuer: 'Academic Certification', date: '2025', group: 'Programming Certifications', skills: ['Logic', 'Problem Solving', 'JavaScript'], verificationUrl: '#' },
-  { title: 'Networking Essentials', issuer: 'Training Seminar', date: '2025', group: 'Networking Certifications', skills: ['Networking', 'Security Basics', 'Infrastructure'], verificationUrl: '#' },
-  { title: 'On-the-Job Training Completion', issuer: 'OJT Program', date: '2025', group: 'OJT Certificates', skills: ['Team Leadership', 'System Development', 'Documentation'], verificationUrl: '#' },
-  { title: 'Technology Seminar Participation', issuer: 'Seminars & Trainings', date: '2024', group: 'Seminars & Trainings', skills: ['Innovation', 'Career Readiness', 'Professional Growth'], verificationUrl: '#' },
+  {
+    id: 'internship-etiquette',
+    title: 'Test Interpretation, 3K Session "Kwentuhan, Kumustahan at Kahalagahan" and Talk on Internship Etiquette',
+    issuer: 'Davao Del Norte State College',
+    date: 'September 19, 2025',
+    category: 'Seminar / Internship Training',
+    filters: ['Seminars', 'Professional Development'],
+    image: '/certificates/internship-etiquette.png',
+    skills: ['Internship Etiquette', 'Communication', 'Professional Development', 'Student Training'],
+    featured: true,
+  },
+  {
+    id: 'color-theory-graphic-design',
+    title: 'The Power of Color in Graphic Design: Theory, Psychology, and Practice',
+    issuer: 'Davao Del Norte State College',
+    date: 'November 5, 2025',
+    category: 'Graphic Design',
+    filters: ['Graphic Design'],
+    image: '/certificates/color-theory-graphic-design.png',
+    skills: ['Graphic Design', 'Color Theory', 'Visual Design', 'Creativity'],
+    featured: true,
+  },
+  {
+    id: 'journey-it-specialist',
+    title: 'Journey from Science Practitioner to Information Technology Specialist',
+    issuer: 'Davao Del Norte State College',
+    date: 'October 17, 2025',
+    category: 'Information Technology',
+    filters: ['Information Technology', 'Professional Development'],
+    image: '/certificates/journey-it-specialist.png',
+    skills: ['Information Technology', 'Career Development', 'Tech Industry', 'Professional Growth'],
+    featured: true,
+  },
+  {
+    id: 'ethical-hacker-cisco',
+    title: 'Ethical Hacker',
+    issuer: 'Cisco Networking Academy',
+    date: 'December 4, 2025',
+    category: 'Cybersecurity',
+    filters: ['Cybersecurity'],
+    image: '/certificates/ethical-hacker-cisco.png',
+    skills: ['Ethical Hacking', 'Cybersecurity', 'Network Security', 'Cisco Networking'],
+    featured: true,
+  },
+]
+
+export const certificateFilters = [
+  'All',
+  'Graphic Design',
+  'Cybersecurity',
+  'Information Technology',
+  'Seminars',
+  'Professional Development',
 ]
 
 export const achievements = [
