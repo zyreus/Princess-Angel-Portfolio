@@ -1,9 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Download } from 'lucide-react'
-import { downloadResumePDF } from '../components/resume/ResumePDFExport'
+import ResumeExportButton, { downloadResumePDF } from '../components/resume/ResumeExportButton'
 import ResumePreview from '../components/resume/ResumePreview'
-import ResumePrintLayout from '../components/resume/ResumePrintLayout'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,7 +39,7 @@ function Resume() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="relative mx-auto w-full max-w-[1220px] space-y-10 py-10 md:py-14"
+      className="relative mx-auto w-full max-w-[1400px] space-y-10 py-10 md:py-14"
     >
       <div className="pointer-events-none absolute inset-x-0 top-10 -z-10 mx-auto h-72 max-w-4xl rounded-full bg-[#F5F3FF] blur-3xl" />
 
@@ -56,36 +54,14 @@ function Resume() {
             Modern, recruiter-ready profile for <span className="bg-gradient-to-r from-[#7C3AED] to-[#A855F7] bg-clip-text text-transparent">Princess Angel Paslot</span>.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-            A clean two-column resume with refined purple accents, stronger hierarchy, balanced cards, and Legal-size PDF export.
+            A spacious two-column resume with refined purple accents, premium hierarchy, balanced cards, and sharp one-page PDF export.
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={handleDownload}
-          disabled={isDownloading}
-          className="premium-button group w-full shadow-glow disabled:cursor-not-allowed disabled:opacity-70 sm:w-fit"
-        >
-          <Download className="h-4 w-4 transition duration-300 group-hover:translate-y-0.5" />
-          {isDownloading ? 'Preparing PDF...' : 'Download Resume'}
-        </button>
+        <ResumeExportButton onClick={handleDownload} isDownloading={isDownloading} />
       </motion.div>
 
-      <motion.div
-        variants={fadeUpVariants}
-        className="sticky top-20 z-30 flex justify-end lg:hidden"
-        aria-label="Floating resume download"
-      >
-        <button type="button" onClick={handleDownload} disabled={isDownloading} className="premium-button shadow-glow">
-          <Download className="h-4 w-4" />
-          PDF
-        </button>
-      </motion.div>
-
-      <ResumePreview previewRef={previewRef} fadeUpVariants={fadeUpVariants} />
-      <div className="resume-pdf-export-host" aria-hidden="true">
-        <ResumePrintLayout printRef={printRef} />
-      </div>
+      <ResumePreview previewRef={previewRef} printRef={printRef} />
     </motion.section>
   )
 }

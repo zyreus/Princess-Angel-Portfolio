@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Code2, ExternalLink, Eye, Layers3, Link as LinkIcon, Sparkles, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { projects as allProjects } from '../data/portfolio'
 
 const cardMotion = {
   initial: { opacity: 0, y: 22 },
@@ -62,35 +61,6 @@ function ProjectLinkCard({ href, icon: Icon = ExternalLink, label, meta }) {
   )
 }
 
-function MoreProjectCard({ project }) {
-  const hasProjectLiveUrl = project.liveUrl && project.liveUrl !== '#'
-  const primaryLink = hasProjectLiveUrl ? project.liveUrl : project.reviewLinks?.[0]?.url || project.githubUrl
-  const actionLabel = hasProjectLiveUrl ? project.liveLabel || 'Live Preview' : project.reviewLinks?.[0] ? 'Review Project' : 'Open GitHub'
-
-  return (
-    <motion.a
-      href={primaryLink}
-      target="_blank"
-      rel="noreferrer"
-      whileHover={{ y: -3, scale: 1.01 }}
-      whileTap={{ scale: 0.99 }}
-      className="group flex min-h-[108px] flex-col justify-between rounded-2xl border border-lilac-200/70 bg-white/80 p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.82)] backdrop-blur-xl transition duration-300 hover:border-lilac-300 hover:bg-white hover:shadow-[0_14px_34px_rgba(124,58,237,0.12)] focus:outline-none focus-visible:ring-2 focus-visible:ring-lilac-300/70"
-    >
-      <span>
-        <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-lilac-600/80">
-          {formatCategoryLabel(project.category)}
-        </span>
-        <span className="mt-2 block text-sm font-black leading-snug text-lilac-950">{project.title}</span>
-        <span className="mt-2 line-clamp-2 block text-xs leading-5 text-lilac-900/70">{project.description}</span>
-      </span>
-      <span className="mt-4 inline-flex items-center gap-2 text-xs font-black text-lilac-700">
-        {actionLabel}
-        <ExternalLink className="h-3.5 w-3.5 transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-      </span>
-    </motion.a>
-  )
-}
-
 function ProjectCard({
   id,
   title,
@@ -119,7 +89,6 @@ function ProjectCard({
       meta: 'Review sample link',
     })),
   ]
-  const moreProjects = allProjects.filter((project) => project.id !== id && project.title !== title).slice(0, 4)
 
   return (
     <>
@@ -318,21 +287,6 @@ function ProjectCard({
                     </div>
                   ) : null}
 
-                  {moreProjects.length > 0 ? (
-                    <div className="mt-5 border-t border-lilac-200/60 pt-5 sm:mt-7 sm:pt-6">
-                      <div>
-                        <p className="text-[0.7rem] font-black uppercase tracking-[0.2em] text-lilac-600 sm:text-xs sm:tracking-[0.22em]">More Projects</p>
-                        <p className="mt-2 text-xs leading-6 text-lilac-900/62 sm:text-sm">
-                          Continue exploring related portfolio work without leaving the preview.
-                        </p>
-                      </div>
-                      <div className="mt-3 grid gap-2.5 sm:mt-4 sm:grid-cols-2 sm:gap-3 lg:grid-cols-1 xl:grid-cols-2">
-                        {moreProjects.map((project) => (
-                          <MoreProjectCard key={`${title}-more-${project.id}`} project={project} />
-                        ))}
-                      </div>
-                    </div>
-                  ) : null}
                 </section>
               </div>
             </motion.div>

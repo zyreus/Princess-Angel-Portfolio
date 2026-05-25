@@ -6,7 +6,6 @@ import graphicDesignSampleSeven from '../assets/graphic-design-sample-7.png'
 import medicalTriageDashboard from '../assets/medical-triage-dashboard.png'
 import projectDashboard from '../assets/mabuhightrack-dashboard.png'
 import photographySampleFour from '../assets/photography-sample-4.png'
-import photographySampleSix from '../assets/photography-sample-6.png'
 
 export const roles = ['Full Stack Developer', 'UI/UX Designer', 'Data Analyst', 'System Developer']
 
@@ -48,7 +47,6 @@ export const projectCategories = [
 ]
 
 const graphicDesignReviewLinks = [
-  { label: 'Graphic Design 1', url: graphicDesignSampleTwo },
   { label: 'Graphic Design 2', url: graphicDesignSampleThree },
   { label: 'Graphic Design 3', url: graphicDesignSampleFour },
   { label: 'Graphic Design 4', url: graphicDesignSampleSix },
@@ -56,14 +54,12 @@ const graphicDesignReviewLinks = [
 ]
 
 const videoReviewLinks = [
-  { label: 'Video Presentation', url: 'https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/view?usp=drive_link' },
   { label: 'Video Edit 1', url: 'https://drive.google.com/file/d/1QQ1wOE3oFZuYJVHqZtzyWXBpjx9U5FhF/view?usp=drive_link' },
   { label: 'Video Edit 2', url: 'https://drive.google.com/file/d/10kSXOTRBVNFB-oJDiknDZ6W6JIXPiUj1/view?t=3.995781' },
   { label: 'Video Edit 3', url: 'https://drive.google.com/file/d/12Qde7pPZe7ZH33upBHhRxvwIQv1M_t-k/view' },
 ]
 
 const pictureReviewLinks = [
-  { label: 'Picture Folder 1', url: 'https://drive.google.com/drive/folders/1-PZralj3lNZ_Vs65zwIQSzIGJ-8Y1T6h?usp=sharing' },
   { label: 'Picture Folder 2', url: 'https://drive.google.com/drive/folders/10eGi-DSYmEZMACKuzP87WTcCCUyhLQ3d?usp=sharing' },
   { label: 'Picture Folder 3', url: 'https://drive.google.com/drive/folders/10DDAhnCJRhVWTlqTVwOsDGK1F2TT6dyc?usp=drive_link' },
   { label: 'Picture Folder 4', url: 'https://drive.google.com/drive/folders/10k-UPWPno_gARdFs3irYuunygJDUQvgA' },
@@ -134,19 +130,6 @@ export const projects = [
     liveLabel: 'Review Pictures',
     reviewLinks: pictureReviewLinks,
   },
-  {
-    id: 'creative-media-gallery',
-    title: 'Creative Media Gallery',
-    role: 'Creative Portfolio',
-    description: 'A combined media showcase featuring graphic designs, video work, and picture-based storytelling.',
-    category: 'Pictures',
-    image: photographySampleSix,
-    stack: ['Graphics', 'Videos', 'Pictures', 'Portfolio Curation'],
-    stats: ['Creative samples', 'Visual storytelling', 'Portfolio presentation'],
-    liveUrl: 'https://drive.google.com/file/d/1Qso_uoCOJKIJ0gpMwfeEaW4n6XvqIgyY/view?usp=drive_link',
-    liveLabel: 'Review Media',
-    reviewLinks: [...graphicDesignReviewLinks, ...videoReviewLinks, ...pictureReviewLinks],
-  },
 ]
 
 export const certificates = [
@@ -198,7 +181,7 @@ export const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'December 4, 2025',
     category: 'Cybersecurity',
-    filters: ['Cybersecurity'],
+    filters: ['Seminars', 'Cybersecurity'],
     image: '/certificates/ethical-hacker-cisco.png',
     description:
       'A Cisco Networking Academy cybersecurity certificate introducing ethical hacking concepts, network defense awareness, and security fundamentals.',
@@ -212,7 +195,7 @@ export const certificates = [
     issuer: 'Cisco Networking Academy',
     date: 'January 28, 2024',
     category: 'Networking',
-    filters: ['Networking', 'Information Technology'],
+    filters: ['Seminars', 'Networking', 'Information Technology'],
     image: '/certificates/cisco-packet-tracer.png',
     description:
       'Awarded to Paslot Princess Angel for successfully completing Getting Started with Cisco Packet Tracer through the Cisco Networking Academy program.',
@@ -224,12 +207,9 @@ export const certificates = [
 
 export const certificateFilters = [
   'All',
-  'Graphic Design',
-  'Cybersecurity',
-  'Networking',
-  'Information Technology',
   'Seminars',
-  'Professional Development',
+  'Information Technology',
+  'Graphic Design',
 ]
 
 export const achievements = [

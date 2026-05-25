@@ -3,13 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@page {
+  size: A4;
+  margin: 0;
+}
+
 @layer base {
   * {
     @apply box-border;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    @apply m-0 bg-lilac-50/40 font-sans text-lilac-900 antialiased;
+    @apply m-0 font-sans text-lilac-900 antialiased;
+    background: #f7f4fb;
   }
 
   html {
@@ -123,70 +131,599 @@
     color: #8040c0;
   }
 
-  .resume-pdf-sheet {
-    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  .resume,
+  .resume *,
+  .resume *::before,
+  .resume *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  .resume-pdf-sheet h1,
-  .resume-pdf-sheet h2,
-  .resume-pdf-sheet h3 {
+  .resume {
+    position: relative;
+    width: 794px;
+    height: 1123px;
+    min-width: 794px;
+    max-width: 794px;
+    min-height: 1123px;
+    max-height: 1123px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background: #ffffff;
+    color: #1e1b2f;
     font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  }
-
-  .resume-print-sheet {
-    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    line-height: 1.65;
     contain: layout paint style;
+    isolation: isolate;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    break-inside: avoid;
   }
 
-  .resume-print-sheet h1,
-  .resume-print-sheet h2,
-  .resume-print-sheet h3 {
+  .resume h1,
+  .resume h2,
+  .resume h3 {
     font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
 
-  .resume-print-sheet *,
-  .resume-print-sheet svg,
-  .resume-print-sheet img {
-    transform: none;
-    animation: none;
-    transition: none;
+  .resume h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+
+  .resume h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+
+  .resume h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+  }
+
+  .resume p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .resume img,
+  .resume svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .resume-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 220px;
+    height: 1083px;
+    overflow: hidden;
+  }
+
+  .resume-main {
+    display: grid;
+    grid-template-rows: 170px 184px 388px 287px;
+    gap: 18px;
+    width: 514px;
+    height: 1083px;
+    overflow: hidden;
+  }
+
+  .resume-card,
+  .sidebar-card,
+  .work-card,
+  .timeline-card {
+    border: 1px solid #eadcff;
+    background: #ffffff;
+    box-shadow: 0 14px 34px rgba(88, 28, 135, 0.055);
+  }
+
+  .resume-card,
+  .sidebar-card {
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 18px;
+  }
+
+  .resume-card-title {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
+    align-items: center;
+    height: 34px;
+    margin-bottom: 16px;
+  }
+
+  .resume-card-title h2 {
+    color: #111827;
+    font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .resume-card-icon {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 1px solid #eadcff;
+    border-radius: 14px;
+    background: #f8f5ff;
+    color: #7c3aed;
+  }
+
+  .profile-card {
+    height: 286px;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 132px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #eadcff;
+    border-radius: 24px;
+    background: #f8f5ff;
+    box-shadow: 0 14px 34px rgba(124, 58, 237, 0.12);
+  }
+
+  .profile-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .profile-degree {
+    margin-top: 12px;
+    color: #7c3aed;
+    font-size: 8px !important;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.45 !important;
+    text-transform: uppercase;
+  }
+
+  .profile-card h2 {
+    margin-top: 6px;
+    color: #111827;
+    font-size: 14px;
+    line-height: 1.22;
+  }
+
+  .profile-rule {
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin: 8px auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+  }
+
+  .profile-card p:last-child {
+    margin-top: 8px;
+    color: #5f6472;
+    font-size: 9.4px;
+    line-height: 1.38;
+  }
+
+  .contact-card {
+    height: 246px;
+  }
+
+  .contact-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .contact-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+    align-items: start;
+    min-height: 34px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  }
+
+  .contact-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .contact-icon {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    border: 1px solid #eadcff;
+    border-radius: 12px;
+    background: #f8f5ff;
+    color: #7c3aed;
+  }
+
+  .contact-label {
+    color: #9ca3af;
+    font-size: 8px !important;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.2 !important;
+    text-transform: uppercase;
+  }
+
+  .contact-value {
+    display: block;
+    max-width: 142px;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+    color: #4b5563;
+    font-size: 8.4px;
+    font-weight: 500;
+    line-height: 1.28;
+  }
+
+  .skills-card {
+    height: 276px;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    border: 1px solid #eadcff;
+    border-radius: 999px;
+    background: #faf8ff;
+    padding: 4px 8px;
+    color: #6d28d9;
+    font-size: 8.75px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .languages-card {
+    height: 221px;
+  }
+
+  .language-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .language-item {
+    display: grid;
+    gap: 7px;
+  }
+
+  .language-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .language-header p {
+    color: #111827;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .language-header span {
+    color: #9ca3af;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .language-bar {
+    width: 100%;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #f1ecfa;
+  }
+
+  .language-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+  }
+
+  .resume-header {
+    display: grid;
+    align-content: start;
+    height: 170px;
+  }
+
+  .resume-header h1 {
+    color: #111827;
+  }
+
+  .header-subtitle {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .header-subtitle p {
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .header-rule {
+    width: 112px;
+    height: 3px;
+    margin-top: 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+  }
+
+  .summary-card {
+    height: 184px;
+  }
+
+  .summary-text {
+    max-width: 458px;
+    color: #555555;
+    font-size: 11.7px !important;
+    line-height: 1.48 !important;
+  }
+
+  .education-card {
+    height: 388px;
+  }
+
+  .timeline {
+    display: grid;
+    gap: 9px;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 12px 1fr 90px;
+    gap: 14px;
+    align-items: center;
+    height: 65px;
+  }
+
+  .timeline-marker {
+    display: grid;
+    justify-items: center;
+    align-self: stretch;
+    width: 12px;
+  }
+
+  .timeline-marker span {
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    margin-top: 26px;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    background: #7c3aed;
+    box-shadow: 0 0 0 4px #f5f3ff;
+  }
+
+  .timeline-marker i {
+    width: 1px;
+    height: 47px;
+    margin-top: -1px;
+    background: #ddd6fe;
+  }
+
+  .timeline-marker i.is-last {
+    opacity: 0;
+  }
+
+  .timeline-card {
+    height: 65px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #faf8ff;
+    padding: 9px 13px;
+    box-shadow: none;
+  }
+
+  .timeline-card h3 {
+    color: #111827;
+    font-size: 11.2px;
+    line-height: 1.22;
+  }
+
+  .timeline-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 5px;
+    list-style: none;
+  }
+
+  .timeline-card li {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    min-height: 15px;
+    border: 1px solid #eadcff;
+    border-radius: 999px;
+    background: #ffffff;
+    padding: 2px 5px;
+    color: #5f6472;
+    font-size: 6.8px;
+    font-weight: 500;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .timeline-card li svg {
+    color: #7c3aed;
+  }
+
+  .timeline-year {
+    display: grid;
+    width: 90px;
+    height: 30px;
+    place-items: center;
+    border: 1px solid #ddd6fe;
+    border-radius: 999px;
+    background: #f8f5ff;
+    color: #6d28d9;
+    font-size: 9px !important;
+    font-weight: 700;
+    line-height: 1 !important;
+    text-align: center;
+  }
+
+  .work-section {
+    height: 287px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    height: 201px;
+  }
+
+  .work-card {
+    height: 201px;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 16px;
+    box-shadow: 0 10px 24px rgba(88, 28, 135, 0.045);
+  }
+
+  .work-icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 14px;
+    background: #f1ecfa;
+    color: #7c3aed;
+  }
+
+  .work-card h3 {
+    margin-top: 10px;
+    color: #111827;
+    font-size: 11.2px;
+    line-height: 1.32;
+  }
+
+  .work-card ul {
+    display: grid;
+    gap: 7px;
+    margin-top: 9px;
+    list-style: none;
+  }
+
+  .work-card li {
+    display: grid;
+    grid-template-columns: 12px 1fr;
+    gap: 6px;
+    align-items: start;
+    color: #5f6472;
+    font-size: 9.2px;
+    line-height: 1.42;
+  }
+
+  .work-card li svg {
+    margin-top: 1px;
+    color: #7c3aed;
   }
 
   .resume-pdf-export-host {
-    position: fixed;
-    left: -10000px;
-    top: 0;
-    z-index: -1;
-    width: 850px;
-    max-width: 850px;
-    height: auto;
-    overflow: visible;
-    pointer-events: none;
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  .resume-export-wrapper {
-    max-width: 1220px;
+  .resume-pdf-capture {
+    contain: layout paint style;
+    isolation: isolate;
+  }
+
+  .resume-preview-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+
+  .resume-preview-stage {
+    width: 794px;
+    height: 1123px;
+    margin: 0 auto;
+    overflow: visible;
+    border-radius: 28px;
+    box-shadow: 0 34px 110px rgba(88, 28, 135, 0.13);
   }
 }
 
 @media print {
   @page {
-    size: auto;
-    margin: 12mm;
+    size: A4;
+    margin: 0;
   }
 
   html,
   body {
-    width: 100%;
-    height: auto;
+    width: 794px;
+    height: 1123px;
     margin: 0;
     padding: 0;
-    background: white;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  img {
+    image-rendering: auto !important;
+  }
+
+  * {
+    transform: none !important;
+    animation: none !important;
   }
 
   body * {
@@ -198,36 +735,48 @@
     visibility: visible;
   }
 
-  .resume-pdf-export-host {
-    position: static !important;
-    left: 0 !important;
-    top: 0 !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    overflow: visible !important;
-    pointer-events: none !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
   #resume-print {
-    position: static !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    aspect-ratio: auto !important;
-    border-radius: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 794px !important;
+    height: 1123px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+    min-height: 1123px !important;
+    max-height: 1123px !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: #ffffff !important;
     box-shadow: none !important;
     overflow: hidden !important;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    break-after: avoid;
+    break-inside: avoid;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
+  #resume-print .resume-layout {
+    display: grid !important;
+    grid-template-columns: 220px 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
   #resume-print img {
-    object-fit: cover !important;
     object-position: center !important;
     flex-shrink: 0 !important;
+    image-rendering: auto !important;
+  }
+
+  #resume-print .profile-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
   }
 
   #resume-print *,
