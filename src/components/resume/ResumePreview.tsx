@@ -17,7 +17,7 @@ import {
   languages,
   profileSummary,
   resumeSkills,
-} from './ResumePrintTemplate'
+} from './ResumePrintLayout'
 
 function ResumeSection({ icon: Icon, title, children }) {
   return (

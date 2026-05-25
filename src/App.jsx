@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useLayoutEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import DecorativeBackdrop from './components/DecorativeBackdrop'
 import Footer from './components/Footer'
@@ -16,16 +16,17 @@ const Resume = lazy(() => import('./pages/Resume'))
 
 function App() {
   const location = useLocation()
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setIsLoading(false), 1100)
-    return () => clearTimeout(timeoutId)
+    const previousScrollRestoration = window.history.scrollRestoration
+    window.history.scrollRestoration = 'manual'
+
+    return () => {
+      window.history.scrollRestoration = previousScrollRestoration
+    }
   }, [])
 
-  useEffect(() => {
-    if (isLoading) return undefined
-
+  useLayoutEffect(() => {
     const frameId = window.requestAnimationFrame(() => {
       const hashTarget = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null
 
@@ -34,29 +35,11 @@ function App() {
         return
       }
 
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     })
 
     return () => window.cancelAnimationFrame(frameId)
-  }, [isLoading, location.hash, location.pathname, location.search])
-
-  if (isLoading) {
-    return (
-      <div className="fixed inset-0 z-[200] flex items-center justify-center bg-gradient-to-br from-white via-lilac-50 to-accent-pink/30 p-6 text-center">
-        <div className="animate-fadeInUp space-y-4">
-          <p className="eyebrow">Portfolio</p>
-          <h1 className="font-display text-3xl font-bold sm:text-4xl">
-            <span className="gradient-text">Princess Angel Paslot</span>
-          </h1>
-          <div className="mx-auto flex justify-center gap-2 text-lilac-400/70" aria-hidden>
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lilac-400" />
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lilac-400 [animation-delay:120ms]" />
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-lilac-400 [animation-delay:240ms]" />
-          </div>
-        </div>
-      </div>
-    )
-  }
+  }, [location.hash, location.pathname, location.search])
 
   return (
     <div className="premium-shell">
@@ -65,7 +48,7 @@ function App() {
       <div className="relative z-10">
         <Navbar />
         <main className="mx-auto w-full max-w-[1280px] px-6 pb-12 md:pb-16 lg:px-8">
-          <Suspense fallback={<div className="py-24 text-center text-lilac-700">Loading page...</div>}>
+          <Suspense fallback={<div className="min-h-screen" aria-hidden />}>
             <div key={location.pathname} className="animate-fadeInUp">
               <Routes location={location}>
                 <Route path="/" element={<Home />} />

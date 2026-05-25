@@ -1,11 +1,9 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Download } from 'lucide-react'
+import { downloadResumePDF } from '../components/resume/ResumePDFExport'
 import ResumePreview from '../components/resume/ResumePreview'
-import ResumePrintTemplate, {
-  LEGAL_HEIGHT_PX,
-  LEGAL_WIDTH_PX,
-} from '../components/resume/ResumePrintTemplate'
+import ResumePrintLayout from '../components/resume/ResumePrintLayout'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,70 +30,7 @@ function Resume() {
     const resumeElement = printRef.current
 
     try {
-      const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
-        import('html2canvas'),
-        import('jspdf'),
-        import('html2pdf.js'),
-      ])
-
-      if (document.fonts?.ready) {
-        await document.fonts.ready
-      }
-
-      const images = Array.from(resumeElement.querySelectorAll('img'))
-      await Promise.all(
-        images.map((image) => {
-          if (image.complete) return Promise.resolve()
-          return new Promise((resolve) => {
-            image.onload = resolve
-            image.onerror = resolve
-          })
-        }),
-      )
-
-      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
-
-      const opt = {
-        margin: 0,
-        filename: 'Princess-Angel-Paslot-Resume.pdf',
-        image: {
-          type: 'jpeg',
-          quality: 1,
-        },
-        html2canvas: {
-          scale: 3,
-          useCORS: true,
-          letterRendering: true,
-          backgroundColor: '#f8f5ff',
-          width: LEGAL_WIDTH_PX,
-          height: LEGAL_HEIGHT_PX,
-          scrollX: 0,
-          scrollY: 0,
-          windowWidth: LEGAL_WIDTH_PX,
-          windowHeight: LEGAL_HEIGHT_PX,
-        },
-        jsPDF: {
-          unit: 'px',
-          format: [LEGAL_WIDTH_PX, LEGAL_HEIGHT_PX],
-          orientation: 'portrait',
-          compress: false,
-        },
-      }
-
-      const canvas = await html2canvas(resumeElement, opt.html2canvas)
-      const pdf = new jsPDF(opt.jsPDF)
-
-      pdf.addImage(
-        canvas.toDataURL('image/jpeg', opt.image.quality),
-        'JPEG',
-        0,
-        0,
-        LEGAL_WIDTH_PX,
-        LEGAL_HEIGHT_PX,
-        undefined,
-        'NONE',
-      )
-      pdf.save(opt.filename)
+      await downloadResumePDF(resumeElement)
     } finally {
       setIsDownloading(false)
     }
@@ -149,7 +84,7 @@ function Resume() {
 
       <ResumePreview previewRef={previewRef} fadeUpVariants={fadeUpVariants} />
       <div className="resume-pdf-export-host" aria-hidden="true">
-        <ResumePrintTemplate printRef={printRef} />
+        <ResumePrintLayout printRef={printRef} />
       </div>
     </motion.section>
   )
