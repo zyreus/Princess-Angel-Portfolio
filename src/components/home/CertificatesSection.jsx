@@ -50,7 +50,7 @@ function CertificatesSection() {
           </Link>
         </div>
 
-        <div className="relative grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="relative grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
           {featuredCertificates.map((certificate, index) => (
             <CertificateCard
               key={certificate.id}

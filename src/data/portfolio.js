@@ -3,6 +3,7 @@ import graphicDesignSampleThree from '../assets/graphic-design-sample-4.png'
 import graphicDesignSampleFour from '../assets/graphic-design-sample-5.png'
 import graphicDesignSampleSix from '../assets/graphic-design-sample-6.png'
 import graphicDesignSampleSeven from '../assets/graphic-design-sample-7.png'
+import medicalTriageDashboard from '../assets/medical-triage-dashboard.png'
 import projectDashboard from '../assets/mabuhightrack-dashboard.png'
 import photographySampleFour from '../assets/photography-sample-4.png'
 import photographySampleSix from '../assets/photography-sample-6.png'
@@ -39,10 +40,8 @@ export const skills = [
 
 export const projectCategories = [
   'All',
-  'Web Applications',
   'AI Projects',
   'Laravel Systems',
-  'Analytics Projects',
   'Graphic Design',
   'Videos',
   'Pictures',
@@ -90,7 +89,7 @@ export const projects = [
     role: 'Developer, Analyst',
     description: 'A patient prioritization platform for efficient healthcare queue management and response.',
     category: 'Laravel Systems',
-    image: projectDashboard,
+    image: medicalTriageDashboard,
     stack: ['Web App', 'Filament-Laravel', 'Healthcare', 'Data Logic'],
     stats: ['Priority rules', 'Queue management', 'OJT delivery'],
     liveUrl: '#',
@@ -159,6 +158,9 @@ export const certificates = [
     category: 'Seminar / Internship Training',
     filters: ['Seminars', 'Professional Development'],
     image: '/certificates/internship-etiquette.png',
+    description:
+      'A professional development certificate covering test interpretation, wellness-centered student conversations, and internship etiquette preparation.',
+    details: ['3K Session: Kwentuhan, Kumustahan at Kahalagahan', 'Talk on Internship Etiquette', 'Focused on communication, professionalism, and student readiness'],
     skills: ['Internship Etiquette', 'Communication', 'Professional Development', 'Student Training'],
     featured: true,
   },
@@ -170,6 +172,9 @@ export const certificates = [
     category: 'Graphic Design',
     filters: ['Graphic Design'],
     image: '/certificates/color-theory-graphic-design.png',
+    description:
+      'A graphic design certificate focused on color theory, visual psychology, creative decision-making, and practical design application.',
+    details: ['Covered color theory and psychology', 'Focused on visual design principles', 'Strengthened creative layout and design judgment'],
     skills: ['Graphic Design', 'Color Theory', 'Visual Design', 'Creativity'],
     featured: true,
   },
@@ -181,6 +186,9 @@ export const certificates = [
     category: 'Information Technology',
     filters: ['Information Technology', 'Professional Development'],
     image: '/certificates/journey-it-specialist.png',
+    description:
+      'A career development certificate highlighting the professional journey from science practice toward information technology specialization.',
+    details: ['Focused on IT career growth', 'Covered professional transition into technology', 'Highlighted industry awareness and long-term development'],
     skills: ['Information Technology', 'Career Development', 'Tech Industry', 'Professional Growth'],
     featured: true,
   },
@@ -192,7 +200,24 @@ export const certificates = [
     category: 'Cybersecurity',
     filters: ['Cybersecurity'],
     image: '/certificates/ethical-hacker-cisco.png',
+    description:
+      'A Cisco Networking Academy cybersecurity certificate introducing ethical hacking concepts, network defense awareness, and security fundamentals.',
+    details: ['Awarded by Cisco Networking Academy', 'Focused on ethical hacking fundamentals', 'Covered cybersecurity and network security concepts'],
     skills: ['Ethical Hacking', 'Cybersecurity', 'Network Security', 'Cisco Networking'],
+    featured: true,
+  },
+  {
+    id: 'cisco-packet-tracer',
+    title: 'Getting Started with Cisco Packet Tracer',
+    issuer: 'Cisco Networking Academy',
+    date: 'January 28, 2024',
+    category: 'Networking',
+    filters: ['Networking', 'Information Technology'],
+    image: '/certificates/cisco-packet-tracer.png',
+    description:
+      'Awarded to Paslot Princess Angel for successfully completing Getting Started with Cisco Packet Tracer through the Cisco Networking Academy program.',
+    details: ['Awarded by Networking Academy', 'Completion date: January 28, 2024', 'Cisco Networking Academy program'],
+    skills: ['Cisco Packet Tracer', 'Networking', 'Network Simulation', 'Cisco Networking'],
     featured: true,
   },
 ]
@@ -201,6 +226,7 @@ export const certificateFilters = [
   'All',
   'Graphic Design',
   'Cybersecurity',
+  'Networking',
   'Information Technology',
   'Seminars',
   'Professional Development',

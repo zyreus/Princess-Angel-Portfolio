@@ -64,7 +64,7 @@ function App() {
 
       <div className="relative z-10">
         <Navbar />
-        <main className={`mx-auto w-full px-4 pb-12 md:px-8 md:pb-16 ${location.pathname === '/resume' ? 'max-w-7xl' : 'max-w-6xl'}`}>
+        <main className="mx-auto w-full max-w-[1280px] px-6 pb-12 md:pb-16 lg:px-8">
           <Suspense fallback={<div className="py-24 text-center text-lilac-700">Loading page...</div>}>
             <div key={location.pathname} className="animate-fadeInUp">
               <Routes location={location}>

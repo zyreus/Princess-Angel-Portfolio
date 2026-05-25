@@ -92,6 +92,29 @@ function CertificateModal({ certificate, onClose }) {
                   </p>
                 </div>
 
+                {certificate.description || certificate.details?.length ? (
+                  <div className="mt-6 rounded-3xl border border-lilac-200/70 bg-white/70 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.78)]">
+                    <p className="text-[0.7rem] font-black uppercase tracking-[0.2em] text-lilac-600 sm:text-xs sm:tracking-[0.22em]">
+                      Certificate Details
+                    </p>
+                    {certificate.description ? (
+                      <p className="mt-3 text-sm font-semibold leading-7 text-lilac-900/78">
+                        {certificate.description}
+                      </p>
+                    ) : null}
+                    {certificate.details?.length ? (
+                      <ul className="mt-4 space-y-2 text-sm font-semibold leading-6 text-lilac-800/75">
+                        {certificate.details.map((detail) => (
+                          <li key={`${certificate.id}-${detail}`} className="flex gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lilac-400" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                ) : null}
+
                 <div className="mt-6 border-t border-lilac-200/60 pt-5">
                   <p className="text-[0.7rem] font-black uppercase tracking-[0.2em] text-lilac-600 sm:text-xs sm:tracking-[0.22em]">
                     Skills Highlighted

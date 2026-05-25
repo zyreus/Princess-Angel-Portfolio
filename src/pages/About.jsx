@@ -18,16 +18,16 @@ const cards = [
 
 function About() {
   return (
-    <section className="space-y-12 py-12 md:py-16">
-      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div>
+    <section className="space-y-12 py-10 md:py-14">
+      <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
+        <div className="max-w-3xl">
           <SectionHeading
             align="left"
             eyebrow="About Me"
             title="Creative technologist with full stack, UI/UX, and analytics strengths."
             subtitle="I create user-focused digital solutions that balance visual quality, technical reliability, and meaningful business context."
           />
-          <div className="mt-8 space-y-4 text-justify text-sm leading-8 text-lilac-900/80 md:text-base">
+          <div className="mt-6 space-y-3 text-justify text-sm leading-7 text-lilac-900/80 [text-align-last:left] md:text-base md:leading-8">
             <p>
               I am a multidisciplinary IT student and developer with experience across system development, project management,
               creative media, and communication. I care about interfaces that feel premium, but I care just as much about

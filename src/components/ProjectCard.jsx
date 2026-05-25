@@ -127,7 +127,7 @@ function ProjectCard({
         {...cardMotion}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ y: -6, scale: 1.005 }}
-        className="group relative flex h-full min-h-[510px] w-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white/90 shadow-[0_18px_55px_rgba(76,29,149,0.08)] backdrop-blur-xl transition duration-300 hover:border-lilac-300/80 hover:bg-white hover:shadow-[0_24px_70px_rgba(124,58,237,0.15)]"
+        className="group relative flex h-full min-h-[510px] w-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white/90 shadow-[0_18px_55px_rgba(76,29,149,0.08)] backdrop-blur-xl transition duration-300 hover:border-lilac-300/80 hover:bg-white hover:shadow-[0_24px_70px_rgba(124,58,237,0.15)]"
       >
         <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100" aria-hidden>
           <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-lilac-300/20 blur-3xl" />
@@ -148,7 +148,7 @@ function ProjectCard({
         </span>
       </div>
 
-      <div className="relative flex flex-1 flex-col p-5 font-['Inter'] sm:p-6">
+      <div className="relative flex flex-1 flex-col p-6 font-['Inter']">
         <div className="space-y-3.5">
           <p className="flex min-h-5 items-center gap-2 text-[0.68rem] font-extrabold uppercase leading-5 tracking-[0.22em] text-lilac-600">
             <Layers3 className="h-3.5 w-3.5 shrink-0" aria-hidden />

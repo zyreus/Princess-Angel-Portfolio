@@ -125,7 +125,6 @@
 
   .resume-pdf-sheet {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    color-adjust: exact;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -136,192 +135,109 @@
     font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
 
-  .resume-export-mode {
-    width: 794px !important;
-    height: 1123px !important;
-    min-height: 1123px !important;
-    max-height: 1123px !important;
-    overflow: hidden !important;
-    border-radius: 0 !important;
-    border: 0 !important;
-    box-shadow: none !important;
+  .resume-print-sheet {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    line-height: 1.65;
+    contain: layout paint style;
   }
 
-  .resume-export-mode > div {
-    display: grid !important;
-    grid-template-columns: 304px minmax(0, 1fr) !important;
-    align-items: stretch !important;
-    height: 1123px !important;
-    min-height: 1123px !important;
+  .resume-print-sheet h1,
+  .resume-print-sheet h2,
+  .resume-print-sheet h3 {
+    font-family: 'Poppins', 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
 
-  .resume-export-mode aside {
-    padding: 22px !important;
+  .resume-print-sheet *,
+  .resume-print-sheet svg,
+  .resume-print-sheet img {
+    transform: none;
+    animation: none;
+    transition: none;
   }
 
-  .resume-export-mode aside > div:last-child {
-    gap: 14px !important;
+  .resume-pdf-export-host {
+    position: fixed;
+    left: -10000px;
+    top: 0;
+    z-index: -1;
+    width: 816px;
+    height: 1344px;
+    overflow: hidden;
+    pointer-events: none;
   }
 
-  .resume-export-mode .resume-sidebar-card,
-  .resume-export-mode .resume-photo-card {
-    border-radius: 18px !important;
-    padding: 15px !important;
-    box-shadow: 0 10px 28px rgba(88, 28, 135, 0.08) !important;
+  .resume-export-wrapper {
+    max-width: 1220px;
   }
-
-  .resume-export-mode .resume-photo-card {
-    text-align: center !important;
-  }
-
-  .resume-export-mode .resume-photo-card > div:first-child {
-    width: 116px !important;
-    height: 116px !important;
-    border-radius: 24px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .resume-export-mode aside h2 {
-    font-size: 17px !important;
-    line-height: 1.18 !important;
-  }
-
-  .resume-export-mode .resume-sidebar-card h2 {
-    font-size: 11px !important;
-    line-height: 1.35 !important;
-  }
-
-  .resume-export-mode .resume-photo-card p {
-    font-size: 11px !important;
-    line-height: 1.55 !important;
-  }
-
-  .resume-export-mode .resume-photo-card h2 {
-    font-size: 19px !important;
-    line-height: 1.2 !important;
-  }
-
-  .resume-export-mode .resume-sidebar-card > div:first-child {
-    margin-bottom: 11px !important;
-  }
-
-  .resume-export-mode .resume-sidebar-card > div:last-child {
-    gap: 9px !important;
-  }
-
-  .resume-export-mode .resume-sidebar-card p,
-  .resume-export-mode .resume-sidebar-card a,
-  .resume-export-mode .resume-sidebar-card span {
-    font-size: 10.8px !important;
-    line-height: 1.48 !important;
-  }
-
-  .resume-export-mode aside svg {
-    width: 14px !important;
-    height: 14px !important;
-  }
-
-  .resume-export-mode > div > div:last-child {
-    padding: 28px 30px !important;
-  }
-
-  .resume-export-mode header {
-    padding-bottom: 17px !important;
-  }
-
-  .resume-export-mode header h2 {
-    font-size: 36px !important;
-    line-height: 1.05 !important;
-  }
-
-  .resume-export-mode header p {
-    font-size: 12px !important;
-    line-height: 1.45 !important;
-  }
-
-  .resume-export-mode .mt-8 {
-    margin-top: 17px !important;
-  }
-
-  .resume-export-mode .space-y-7 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 14px !important;
-  }
-
-  .resume-export-mode .resume-section,
-  .resume-export-mode .resume-sidebar-card,
-  .resume-export-mode .resume-photo-card,
-  .resume-export-mode .work-card {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
-
-  .resume-export-mode .resume-section {
-    border-radius: 18px !important;
-    padding: 15px !important;
-    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.08) !important;
-  }
-
-  .resume-export-mode .resume-section > div:first-child {
-    margin-bottom: 10px !important;
-  }
-
-  .resume-export-mode .resume-section h2 {
-    font-size: 18px !important;
-    line-height: 1.2 !important;
-  }
-
-  .resume-export-mode .resume-section h3 {
-    font-size: 13px !important;
-    line-height: 1.35 !important;
-  }
-
-  .resume-export-mode .resume-section p,
-  .resume-export-mode .resume-section li,
-  .resume-export-mode .resume-section span {
-    font-size: 11px !important;
-    line-height: 1.5 !important;
-  }
-
-  .resume-export-mode .resume-section svg {
-    width: 14px !important;
-    height: 14px !important;
-  }
-
-  .resume-export-mode .xl\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
-
-  .resume-export-mode .sm\:grid-cols-\[1fr_auto\] {
-    grid-template-columns: 1fr auto !important;
-  }
-
-  .resume-export-mode .work-card {
-    min-height: 124px !important;
-    padding: 13px !important;
-  }
-
-  .resume-export-mode * {
-    transform: none !important;
-    transition: none !important;
-  }
-
 }
 
 @media print {
   @page {
-    size: A4;
+    size: 816px 1344px;
     margin: 0;
   }
 
+  html,
   body {
-    background: #ffffff;
+    width: 816px;
+    height: 1344px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #f8f5ff;
   }
 
-  .resume-pdf-sheet {
-    width: 210mm;
-    min-height: 297mm;
-    box-shadow: none;
-    border-radius: 0;
+  body * {
+    visibility: hidden;
+  }
+
+  #resume-print,
+  #resume-print * {
+    visibility: visible;
+  }
+
+  .resume-pdf-export-host {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    width: 816px !important;
+    height: 1344px !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  #resume-print {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 816px !important;
+    height: 1344px !important;
+    overflow: hidden !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  #resume-print img {
+    width: 150px !important;
+    height: 150px !important;
+    min-width: 150px !important;
+    min-height: 150px !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    border-radius: 30px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+
+  #resume-print *,
+  .premium-button {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

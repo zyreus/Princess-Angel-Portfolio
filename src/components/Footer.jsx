@@ -106,8 +106,8 @@ function Footer() {
   }
 
   return (
-    <footer className="mt-16 px-4 pb-8 md:px-8">
-      <div className="mx-auto w-full max-w-6xl">
+    <footer className="mt-16 px-6 pb-8 lg:px-8">
+      <div className="mx-auto w-full max-w-[1280px]">
         <motion.div
           variants={containerVariants}
           initial="hidden"
