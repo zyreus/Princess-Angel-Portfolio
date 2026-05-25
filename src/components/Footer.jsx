@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUp, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Home, Mail, MapPin, Send, Sparkles, Star, UserRound } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import profileImage from '../assets/about-profile.png'
+import profileImage from '../assets/princess-profile.png'
 import { profile } from '../data/portfolio'
 
 const infoCards = [
