@@ -134,6 +134,34 @@ export const projects = [
 
 export const certificates = [
   {
+    id: 'level-app-top-15-finalist',
+    title: 'Top 15 Finalist - Level App 2.0 Final Pitching Competition',
+    issuer: 'Davao Del Norte State College',
+    date: 'May 16, 2025',
+    category: 'Awards & Recognition',
+    filters: ['Awards & Recognition', 'Information Technology'],
+    image: '/certificates/level-app-top-15-finalist.png',
+    description:
+      'Awarded to Thryvex for reaching the Top 15 finalists in the Level App 2.0 final pitching competition, recognizing creative vision, presentation, and entrepreneurial determination.',
+    details: ['Top 15 finalist recognition', 'Level App 2.0 final pitching competition', 'Highlighted startup creativity, presentation, and entrepreneurship'],
+    skills: ['Startup Pitching', 'Entrepreneurship', 'Presentation', 'Innovation'],
+    featured: true,
+  },
+  {
+    id: 'level-app-participation',
+    title: 'Level App 2.0 Certificate of Participation',
+    issuer: 'Davao Del Norte State College',
+    date: 'May 16, 2025',
+    category: 'Awards & Recognition',
+    filters: ['Awards & Recognition', 'Information Technology'],
+    image: '/certificates/level-app-participation.png',
+    description:
+      'Presented to Thryvex for active participation and exemplary efforts in showcasing a startup project during the Level App 2.0 event.',
+    details: ['Participated in Level App 2.0', 'Showcased a startup project through pitching and booth exhibit', 'Recognized for innovation in IT and technopreneurship'],
+    skills: ['Technopreneurship', 'Startup Showcase', 'Team Collaboration', 'Innovation'],
+    featured: true,
+  },
+  {
     id: 'internship-etiquette',
     title: 'Test Interpretation, 3K Session "Kwentuhan, Kumustahan at Kahalagahan" and Talk on Internship Etiquette',
     issuer: 'Davao Del Norte State College',
@@ -210,6 +238,7 @@ export const certificateFilters = [
   'Seminars',
   'Information Technology',
   'Graphic Design',
+  'Awards & Recognition',
 ]
 
 export const achievements = [
