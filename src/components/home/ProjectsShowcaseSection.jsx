@@ -16,27 +16,28 @@ function ProjectsShowcaseSection({ compact = false }) {
   }, [activeCategory, compact])
 
   return (
-    <MotionSection id="projects" className="space-y-10 font-['Inter'] sm:space-y-12">
+    <MotionSection id="projects" className="space-y-10 sm:space-y-12">
       <div className="mx-auto max-w-[760px] text-center">
         <SectionHeading
           eyebrow="Projects"
-          title="Systems, applications, and creative works."
+          title="Systems, Applications & Creative Works"
           subtitle="A categorized portfolio spanning administrative systems, information management, software development, and creative works."
         />
       </div>
+
+      {/* Filter pills */}
       <div className="flex justify-center">
-        <div className="inline-flex max-w-full flex-wrap justify-center gap-3 rounded-full border border-slate-200/80 bg-white/70 p-2 shadow-[0_18px_54px_rgba(76,29,149,0.07),inset_0_1px_0_rgba(255,255,255,0.82)] backdrop-blur-xl">
+        <div className="inline-flex max-w-full flex-wrap justify-center gap-2 rounded-2xl border border-lilac-200/60 bg-white p-2 shadow-card">
           {projectCategories.map((category) => {
             const isActive = activeCategory === category
-
             return (
               <button
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`rounded-full border px-4 py-2 text-xs font-extrabold tracking-[-0.01em] transition duration-300 sm:px-5 sm:text-sm ${isActive
-                    ? 'border-lilac-300 bg-lilac-100 text-lilac-800 shadow-[0_12px_30px_rgba(124,58,237,0.12)]'
-                    : 'border-transparent bg-white/60 text-slate-600 hover:-translate-y-0.5 hover:border-lilac-200/80 hover:bg-white hover:text-lilac-800'
+                className={`rounded-xl px-4 py-2 text-xs font-semibold transition duration-200 sm:text-sm ${isActive
+                  ? 'bg-lilac-700 text-white shadow-soft'
+                  : 'text-lilac-900/60 hover:bg-lilac-50 hover:text-lilac-700'
                   }`}
               >
                 {category}
@@ -64,7 +65,7 @@ function ProjectsShowcaseSection({ compact = false }) {
       </motion.div>
       {compact ? (
         <div className="text-center">
-          <Link to="/projects" className="premium-button-secondary">
+          <Link to="/projects" className="btn-secondary">
             View all projects
           </Link>
         </div>

@@ -40,23 +40,22 @@ export default {
           light: '#FFFFFF',
         },
         /**
-         * Exact user-provided monochromatic secondary ramp.
-         * Keeps existing `lilac-*` class names across the site.
-         * Updated to match the professional Deep Violet palette.
+         * Purple-violet ramp — the site's primary brand identity.
+         * lilac-700 = #623B98 (Primary Purple, used for headings & accents)
          */
         lilac: {
-          50: '#FAF9FC',   // Warm White background
-          100: '#EDE5F7',  // Soft Lavender
-          200: '#D8C9EF',
-          300: '#C2ACE7',
-          400: '#AB8FDE',
-          500: '#9273B5',  // Muted Violet accent
-          600: '#7A5DA0',
-          700: '#5B3A8E',  // Deep Violet primary
-          800: '#3E2566',  // deep heading color
-          900: '#292631',  // Dark Charcoal text
-          950: '#1A1520',
-          975: '#0D0B10',
+          50: '#FAF8FD',   // Warm off-white page background
+          100: '#EDE5F7',   // Soft Lavender — card bg, chips
+          200: '#D9C9EE',   // Light lavender borders
+          300: '#C4ADDD',   // Medium lavender
+          400: '#A98BD7',   // Light Lavender accent
+          500: '#8056B0',   // Medium Purple
+          600: '#6B45A0',   // Between medium and primary
+          700: '#623B98',   // ★ Primary Purple — buttons, active states, headings
+          800: '#4D287D',   // Deep Violet — hover states
+          900: '#292631',   // Dark Charcoal — main text
+          950: '#1A1420',
+          975: '#0D0A10',
         },
         accent: {
           pink: '#fce7f3',
@@ -71,14 +70,14 @@ export default {
         sans: ['"DM Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        glow: '0 0 50px rgba(124, 58, 237, 0.28)',
+        glow: '0 0 48px rgba(98, 59, 152, 0.24)',
+        soft: '0 12px 36px rgba(98, 59, 152, 0.12)',
+        diffuse: '0 6px 24px rgba(98, 59, 152, 0.10), 0 2px 8px rgba(98, 59, 152, 0.06)',
+        'diffuse-lg': '0 16px 48px rgba(98, 59, 152, 0.14), 0 4px 14px rgba(98, 59, 152, 0.08)',
+        card: '0 2px 16px rgba(98, 59, 152, 0.07)',
+        'card-hover': '0 8px 28px rgba(98, 59, 152, 0.14)',
+        inner: 'inset 0 1px 0 rgba(255,255,255,0.65)',
         cyan: '0 0 42px rgba(6, 182, 212, 0.2)',
-        soft: '0 14px 40px rgba(147, 51, 234, 0.14)',
-        diffuse:
-          '0 8px 32px rgba(147, 51, 234, 0.12), 0 2px 12px rgba(132, 29, 218, 0.07)',
-        'diffuse-lg':
-          '0 20px 48px rgba(147, 51, 234, 0.16), 0 4px 16px rgba(132, 29, 218, 0.09)',
-        inner: 'inset 0 1px 0 rgba(255, 255, 255, 0.6)',
       },
       keyframes: {
         fadeInUp: {

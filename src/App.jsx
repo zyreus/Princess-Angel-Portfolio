@@ -10,9 +10,11 @@ const AllWorks = lazy(() => import('./pages/AllWorks'))
 const Certificates = lazy(() => import('./pages/Certificates'))
 const Contact = lazy(() => import('./pages/Contact'))
 const CreativePortfolio = lazy(() => import('./pages/CreativePortfolio'))
+const Experience = lazy(() => import('./pages/Experience'))
 const Home = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Resume = lazy(() => import('./pages/Resume'))
+const Skills = lazy(() => import('./pages/Skills'))
 
 function App() {
   const location = useLocation()
@@ -53,6 +55,8 @@ function App() {
               <Routes location={location}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/experience" element={<Experience />} />
                 <Route path="/creative-portfolio" element={<CreativePortfolio />} />
                 <Route path="/all-works" element={<AllWorks />} />
                 <Route path="/projects" element={<Projects />} />

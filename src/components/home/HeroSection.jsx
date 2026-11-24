@@ -1,133 +1,156 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowDownToLine, ArrowRight } from 'lucide-react'
-import profileImage from '../../assets/princess-profile.png'
+import { ArrowDownToLine, ArrowRight, Briefcase, Database, Cpu } from 'lucide-react'
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 18 },
+/**
+ * Profile photo lives at public/images/profile-photo.png.
+ * Replace that file at any time — same filename, page auto-updates on next build.
+ * Falls back to a neutral lavender placeholder if the image is missing.
+ */
+const PROFILE_PHOTO_SRC = '/images/profile-photo.png'
+
+const expertise = [
+  { label: 'Administrative Support', icon: Briefcase },
+  { label: 'Data Management', icon: Database },
+  { label: 'IT Solutions', icon: Cpu },
+]
+
+const stagger = (i) => ({
+  initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 },
 })
+
+function ProfilePhoto() {
+  const [hasError, setHasError] = useState(false)
+
+  return (
+    <div className="relative mx-auto w-full max-w-[400px] md:mx-0 md:max-w-none">
+      {/* Soft lavender glow */}
+      <div
+        className="absolute -inset-4 -z-10 rounded-[28px] bg-lilac-100/60 blur-2xl"
+        aria-hidden
+      />
+
+      {/* Square photo frame — aspect-square enforces 1:1 */}
+      <div className="relative overflow-hidden rounded-[22px] border border-lilac-200/50 bg-lilac-100 shadow-[0_16px_56px_rgba(91,58,142,0.12)] aspect-square w-full">
+        {hasError ? (
+          /* Neutral placeholder when image not found */
+          <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-lilac-100 text-lilac-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" aria-hidden>
+              <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
+              <path stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6" />
+            </svg>
+            <p className="text-xs font-medium">Add photo at public/images/profile-photo.png</p>
+          </div>
+        ) : (
+          <img
+            src={PROFILE_PHOTO_SRC}
+            alt="Princess Angel R. Paslot"
+            loading="eager"
+            onError={() => setHasError(true)}
+            className="h-full w-full object-cover object-center"
+          />
+        )}
+      </div>
+
+      {/* Degree badge — bottom-left */}
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.55, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute -bottom-4 left-4 rounded-xl border border-lilac-200/60 bg-white px-3.5 py-2 shadow-card"
+      >
+        <p className="text-[11px] font-semibold text-lilac-700">BS Information Technology</p>
+        <p className="mt-0.5 text-[10px] font-normal text-lilac-900/50">Davao del Norte State College</p>
+      </motion.div>
+
+      {/* Open-to-work badge — top-right */}
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.65, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute -top-3 right-4 inline-flex items-center gap-1.5 rounded-full border border-lilac-200/60 bg-white px-3 py-1.5 shadow-card"
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
+        <span className="text-[11px] font-semibold text-lilac-800">Open to work</span>
+      </motion.div>
+    </div>
+  )
+}
 
 function HeroSection() {
   return (
     <section
       id="home"
-      className="relative grid min-h-[calc(100vh-72px)] items-center gap-12 md:grid-cols-2 md:gap-16"
+      className="grid min-h-[calc(100svh-72px)] items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20"
       aria-label="Introduction"
     >
-      {/* ── Left column ── */}
-      <div className="space-y-6">
-
-        {/* "HELLO, I'M" label */}
-        <motion.p
-          {...fadeUp(0)}
-          className="text-xs font-semibold uppercase tracking-[0.28em] text-lilac-700"
-        >
+      {/* ── LEFT: text ── */}
+      <div className="space-y-5">
+        <motion.p {...stagger(0)} className="text-xs font-semibold uppercase tracking-[0.28em] text-lilac-700">
           Hello, I&apos;m
         </motion.p>
 
-        {/* Name */}
-        <motion.h1
-          {...fadeUp(0.08)}
-          className="font-display text-4xl font-semibold leading-[1.1] text-lilac-900 sm:text-5xl lg:text-[3.25rem]"
-        >
+        <motion.h1 {...stagger(1)} className="font-display text-[2.4rem] font-bold leading-[1.1] text-lilac-900 sm:text-5xl lg:text-[3rem]">
           Princess Angel
           <br />
-          <span className="text-lilac-700">R. Paslot</span>
+          <span className="page-heading">R. Paslot</span>
         </motion.h1>
 
-        {/* Professional title */}
-        <motion.p
-          {...fadeUp(0.16)}
-          className="text-base font-medium text-lilac-900/60 sm:text-lg"
-        >
+        <motion.p {...stagger(2)} className="text-base font-medium text-lilac-900/55 sm:text-lg">
           IT &amp; Administrative Professional
         </motion.p>
 
-        {/* Divider */}
-        <motion.span
-          {...fadeUp(0.2)}
-          className="block h-px w-12 bg-lilac-700/40"
-          aria-hidden
-        />
+        <motion.span {...stagger(3)} className="block h-px w-10 bg-lilac-700/35" aria-hidden />
 
-        {/* Introduction */}
-        <motion.p
-          {...fadeUp(0.24)}
-          className="max-w-md text-[0.95rem] font-normal leading-[1.8] text-lilac-900/70"
-        >
-          I combine technical knowledge, organizational skills, and attention to detail
-          to support efficient business operations and digital solutions.
+        <motion.p {...stagger(4)} className="max-w-[46ch] text-[0.95rem] leading-[1.8] text-lilac-900/65">
+          I&apos;m an Information Technology graduate with capabilities in administrative support,
+          data management, documentation, and digital solutions. I combine technical knowledge
+          and organizational skills to support efficient business operations.
         </motion.p>
 
+        {/* Expertise indicators */}
+        <motion.div {...stagger(5)} className="flex flex-wrap gap-2">
+          {expertise.map(({ label, icon: Icon }) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-1.5 rounded-full border border-lilac-200 bg-lilac-50 px-3.5 py-1.5 text-xs font-medium text-lilac-700"
+            >
+              <Icon className="h-3.5 w-3.5" aria-hidden />
+              {label}
+            </span>
+          ))}
+        </motion.div>
+
         {/* CTA buttons */}
-        <motion.div
-          {...fadeUp(0.32)}
-          className="flex flex-wrap gap-3 pt-1"
-        >
+        <motion.div {...stagger(6)} className="flex flex-wrap gap-3 pt-1">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 rounded-full bg-lilac-700 px-6 py-3 text-sm font-semibold text-white transition duration-200 hover:bg-lilac-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-lilac-700 focus-visible:ring-offset-2"
+            className="btn-primary"
           >
             View My Work
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
-          <Link
-            to="/resume"
-            className="inline-flex items-center gap-2 rounded-full border border-lilac-200 bg-white px-6 py-3 text-sm font-semibold text-lilac-800 transition duration-200 hover:border-lilac-400 hover:bg-lilac-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-lilac-700 focus-visible:ring-offset-2"
+          <a
+            href="/resume.pdf"
+            download
+            className="btn-secondary"
           >
             <ArrowDownToLine className="h-4 w-4" aria-hidden />
             Download Resume
-          </Link>
+          </a>
         </motion.div>
-
       </div>
 
-      {/* ── Right column — photo ── */}
+      {/* ── RIGHT: square photo ── */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
+        initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        className="relative mx-auto w-full max-w-[360px] md:max-w-none"
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
       >
-        {/* Soft lavender glow behind photo */}
-        <div
-          className="absolute inset-0 -z-10 rounded-3xl bg-lilac-100/70 blur-2xl"
-          aria-hidden
-        />
-
-        {/* Photo frame */}
-        <div className="overflow-hidden rounded-3xl border border-lilac-200/60 bg-white shadow-[0_12px_48px_rgba(91,58,142,0.10)]">
-          <img
-            src={profileImage}
-            alt="Princess Angel R. Paslot"
-            loading="eager"
-            className="aspect-[4/5] w-full object-cover object-top"
-          />
-        </div>
-
-        {/* Credential badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute -bottom-5 left-5 rounded-2xl border border-lilac-200/70 bg-white px-4 py-2.5 shadow-[0_8px_24px_rgba(91,58,142,0.10)]"
-        >
-          <p className="text-xs font-semibold text-lilac-700">BS Information Technology</p>
-          <p className="mt-0.5 text-[11px] font-normal text-lilac-900/55">Davao del Norte State College</p>
-        </motion.div>
-
-        {/* Status badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute -top-4 right-5 inline-flex items-center gap-1.5 rounded-full border border-lilac-200/70 bg-white px-3 py-1.5 shadow-[0_4px_16px_rgba(91,58,142,0.08)]"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
-          <span className="text-[11px] font-semibold text-lilac-800">Open to work</span>
-        </motion.div>
+        <ProfilePhoto />
       </motion.div>
     </section>
   )

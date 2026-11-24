@@ -10,7 +10,7 @@ function CertificateCard({ certificate, index = 0, onPreview }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ delay: index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -6 }}
-      className="group relative flex h-full min-h-[650px] w-full flex-col justify-between overflow-hidden rounded-[1.75rem] border border-lilac-200/70 bg-white/85 shadow-diffuse backdrop-blur-xl transition duration-300 hover:border-lilac-300 hover:bg-white hover:shadow-diffuse-lg"
+      className="group relative flex h-full min-h-[620px] w-full flex-col justify-between overflow-hidden rounded-[18px] border border-lilac-200/70 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-lilac-300 hover:shadow-card-hover"
     >
       <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100" aria-hidden>
         <div className="absolute -right-16 -top-20 h-48 w-48 rounded-full bg-lilac-300/25 blur-3xl" />
@@ -69,7 +69,7 @@ function CertificateCard({ certificate, index = 0, onPreview }) {
             <button
               type="button"
               onClick={() => onPreview(certificate)}
-              className="premium-button-secondary h-12 w-full px-4 py-0"
+              className="btn-secondary h-11 w-full"
             >
               <Eye className="h-4 w-4" aria-hidden />
               View Certificate
