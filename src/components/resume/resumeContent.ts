@@ -1,38 +1,44 @@
 import {
   BriefcaseBusiness,
-  Brush,
-  Camera,
+  Briefcase,
   FileText,
   Mail,
   MapPin,
-  Megaphone,
+  Monitor,
   Phone,
   Sparkles,
 } from 'lucide-react'
 
 export const contactItems = [
   { icon: Phone, label: 'Phone', value: '09671460857', href: 'tel:09671460857' },
-  { icon: Mail, label: 'Email', value: 'princessjlister.apple@gmail.com', href: 'mailto:princessjlister.apple@gmail.com' },
-  { icon: MapPin, label: 'Address', value: 'Purok 5 Mabuhay, Carmen Davao del Norte' },
+  { icon: Mail, label: 'Email', value: 'princessangel.paslot@gmail.com', href: 'mailto:princessangel.paslot@gmail.com' },
+  { icon: MapPin, label: 'Address', value: 'Purok 5 Mabuhay, Carmen, Davao del Norte' },
   { icon: FileText, label: 'Portfolio', value: 'princess-angel-portfolio.vercel.app', href: 'https://princess-angel-portfolio.vercel.app/' },
 ]
 
 export const resumeSkills = [
-  'Video Editing',
-  'Photo Editing',
-  'Layout Artist',
-  'Graphic Design',
-  'Active Listening',
-  'Teamwork',
-  'Time Management',
-  'Leadership',
+  'Document Preparation',
+  'Records Management',
+  'Data Entry',
+  'Microsoft Excel',
+  'Google Sheets',
+  'Administrative Coordination',
+  'Report Preparation',
+  'WordPress CMS',
+  'Social Media Management',
+  'HTML & CSS',
+  'React.js',
+  'Laravel & PHP',
+  'MySQL',
   'Communication',
+  'Time Management',
+  'Attention to Detail',
   'Critical Thinking',
-  'Computer Proficiency',
+  'Team Collaboration',
 ]
 
 export const languages = [
-  { language: 'English', level: 'Basic', progress: 42 },
+  { language: 'English', level: 'Proficient', progress: 72 },
   { language: 'Filipino', level: 'Fluent', progress: 88 },
   { language: 'Bisaya', level: 'Mother Tongue', progress: 96 },
 ]
@@ -40,54 +46,70 @@ export const languages = [
 export const education = [
   {
     school: 'Kabacan Pilot Central Elementary School',
-    years: '2008 - 2016',
+    years: '2008 – 2016',
     details: ['With Honor'],
   },
   {
     school: 'Mabuhay National High School',
-    years: '2016 - 2020',
+    years: '2016 – 2020',
     details: ['With Honor', 'BSP Awardee', 'GSP Awardee', 'YES-O Awardee'],
   },
   {
     school: 'University of Mindanao Panabo College',
-    years: '2020 - 2022',
+    years: '2020 – 2022',
     details: ['With High Honor'],
   },
   {
     school: 'Davao del Norte State College',
-    years: '2022 - 2026',
-    details: ['Bachelor of Science in Information Technology'],
+    years: '2022 – 2026',
+    details: ['BS Information Technology', 'Graduate'],
   },
 ]
 
 export const experiences = [
   {
-    icon: Camera,
-    role: 'Photography / Video Editing',
-    details: ['Covered debuts and birthdays', 'Edited event highlights and visual stories'],
+    icon: Briefcase,
+    role: 'Junior Graphic Designer / Digital Operations Support',
+    company: 'CreativeBlox Multimedia Services',
+    details: [
+      'Prepared weekly reports and organized internal documentation',
+      'Maintained contractor pool trackers and specialty records',
+      'Assisted with WordPress content management and website updates',
+      'Organized social media content and posting schedules',
+    ],
   },
   {
-    icon: Megaphone,
-    role: 'Dncs Ideas',
-    details: ['Served as field reporter', 'Supported clear and timely story gathering'],
+    icon: BriefcaseBusiness,
+    role: 'OJT Team Leader / System Developer',
+    company: 'On-the-Job Training (Academic Internship)',
+    details: [
+      'Led team coordination and project delivery',
+      'Developed a Medical Triage System using Laravel',
+      'Prepared documentation, reports, and technical records',
+      'Coordinated requirements with supervisors and stakeholders',
+    ],
   },
   {
-    icon: Brush,
-    role: 'Graphic Designer',
-    details: ['Designed brochures', 'Created tarpaulin layouts for events'],
+    icon: Monitor,
+    role: 'Graphic Designer (Freelance)',
+    company: 'Independent',
+    details: [
+      'Designed brochures, posters, and tarpaulin layouts',
+      'Created social media graphics using Canva and Photoshop',
+    ],
   },
 ]
 
 export const profileSummary =
-  'Motivated Bachelor of Science in Information Technology student with a strong foundation in creative media, communication, and computer proficiency. Known for adapting quickly, listening actively, and working well with teams. Eager to join a respected organization where I can contribute fresh ideas, develop technical and creative skills, and build meaningful professional experience with dedication and integrity.'
+  'Information Technology graduate with a strong foundation in administrative support, data management, documentation, and digital operations. Known for being organized, detail-oriented, and adaptable. Capable of contributing to both administrative and technical workflows. Open to roles in administrative support, data management, HR coordination, digital operations, office operations, and IT support.'
 
 export const resumeMeta = {
   firstName: 'Princess Angel',
   fullName: 'Princess Angel Rentuaya Paslot',
   lastName: 'Paslot',
   degree: 'Bachelor of Science in Information Technology',
-  role: 'Creative Media & UI-focused IT Student',
-  shortIntro: 'Creative IT student focused on visual design, communication, and practical digital solutions.',
+  role: 'IT & Administrative Professional',
+  shortIntro: 'IT graduate with expertise in administrative support, data management, documentation, and digital operations.',
   label: 'Candidate Profile',
   badge: 'Open to Opportunities',
   sectionLabel: 'Professional Details',

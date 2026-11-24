@@ -13,19 +13,19 @@ import photographySampleFive from '../assets/photography-sample-5.HEIC'
 import photographySampleSix from '../assets/photography-sample-6.png'
 
 export const roles = [
-  'Full Stack Developer',
-  'UI/UX Designer',
-  'Data Analyst',
-  'System Developer',
+  'Administrative Support',
+  'Digital Operations',
+  'IT Solutions',
+  'Data Management',
 ]
 
 export const profile = {
-  name: 'Princess Angel Paslot',
+  name: 'Princess Angel R. Paslot',
   email: 'princessangel.paslot@gmail.com',
-  location: 'Philippines',
-  tagline: 'Full Stack Developer, UI/UX Designer, and Data-driven System Builder',
+  location: 'Davao del Norte, Philippines',
+  tagline: 'Administrative Support | Data Management | Digital Operations | IT Solutions',
   summary:
-    'I design polished interfaces and build practical systems that help teams track operations, improve workflows, and turn data into clearer decisions.',
+    'IT graduate combining organizational skills, technical knowledge, and attention to detail to support administrative and digital operations.',
   github: 'https://github.com/princesspaslot',
   linkedin: 'https://www.linkedin.com/in/princess-angel-paslot-03568b315/',
   facebook: 'https://www.facebook.com/',
@@ -73,9 +73,9 @@ export const skills = [
 
 export const projectCategories = [
   'All',
-  'Web Applications',
-  'AI Projects',
-  'Laravel Systems',
+  'Administrative & Business Systems',
+  'Information Management Systems',
+  'Web & Software Development',
   'UI/UX Designs',
   'Analytics Projects',
 ]

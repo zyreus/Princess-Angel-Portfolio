@@ -14,6 +14,7 @@ const socials = [
 const initialFormData = {
   name: '',
   email: '',
+  subject: '',
   message: '',
 }
 
@@ -68,6 +69,7 @@ function ContactSection() {
         body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
+          subject: formData.subject.trim(),
           message: formData.message.trim(),
         }),
       })
@@ -77,7 +79,7 @@ function ContactSection() {
         throw new Error(data.error || 'Failed to send message. Please try again.')
       }
 
-      setStatus({ type: 'success', message: 'Message sent successfully! I’ll get back to you soon.' })
+      setStatus({ type: 'success', message: "Message sent successfully! I'll get back to you soon." })
       setFormData(initialFormData)
     } catch (error) {
       setStatus({ type: 'error', message: error.message || 'Something went wrong. Please email me directly instead.' })
@@ -98,30 +100,34 @@ function ContactSection() {
     <MotionSection id="contact" className="space-y-9">
       <SectionHeading
         eyebrow="Contact"
-        title="Let’s build a polished system, dashboard, or brand experience."
+        title="Let's connect — I'm open to administrative, operations, and IT roles."
       />
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8">
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="text-sm font-semibold text-lilac-800">
               Name
-              <input name="name" value={formData.name} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="Your name" />
+              <input name="name" value={formData.name} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400/80 focus:border-lilac-500" placeholder="Your name" />
             </label>
             <label className="text-sm font-semibold text-lilac-800">
               Email
-              <input type="email" name="email" value={formData.email} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="you@example.com" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400/80 focus:border-lilac-500" placeholder="you@example.com" />
             </label>
           </div>
           <label className="mt-4 block text-sm font-semibold text-lilac-800">
+            Subject
+            <input name="subject" value={formData.subject} onChange={handleChange} className="mt-2 w-full rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400/80 focus:border-lilac-500" placeholder="e.g. Job Opportunity, Collaboration, Inquiry..." />
+          </label>
+          <label className="mt-4 block text-sm font-semibold text-lilac-800">
             Message
-            <textarea name="message" value={formData.message} onChange={handleChange} required rows="6" className="mt-2 w-full resize-none rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400 focus:border-lilac-400" placeholder="Tell me about your project or role..." />
+            <textarea name="message" value={formData.message} onChange={handleChange} required rows="5" className="mt-2 w-full resize-none rounded-2xl border border-lilac-200/70 bg-white/90 px-4 py-3 text-sm text-lilac-900 outline-none transition placeholder:text-lilac-400/80 focus:border-lilac-500" placeholder="Tell me about the role or opportunity..." />
           </label>
           <button
             type="submit"
             disabled={isSending}
             className={`premium-button mt-5 w-full transition disabled:cursor-not-allowed disabled:opacity-75 sm:w-auto ${isSuccess ? 'scale-[1.02]' : ''} ${isError ? 'ring-2 ring-red-200' : ''}`}
           >
-            {isSending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : isSuccess ? <CheckCircle2 className="h-4 w-4 animate-bounce text-emerald-100" /> : <Send className="h-4 w-4" />}
+            {isSending ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden /> : isSuccess ? <CheckCircle2 className="h-4 w-4 animate-bounce text-emerald-100" aria-hidden /> : <Send className="h-4 w-4" aria-hidden />}
             {isSending ? 'Sending...' : isSuccess ? 'Message Sent' : isError ? 'Try Again' : 'Send Message'}
           </button>
           {status.message ? (
@@ -129,7 +135,7 @@ function ContactSection() {
               className={`mt-4 flex items-start gap-2 rounded-2xl border px-4 py-3 text-sm transition ${isError ? 'border-red-200 bg-red-50 text-red-700' : 'border-emerald-200 bg-emerald-50 text-emerald-700'}`}
               aria-live="polite"
             >
-              {isError ? <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" /> : <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />}
+              {isError ? <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden /> : <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />}
               {status.message}
             </p>
           ) : null}
@@ -138,21 +144,21 @@ function ContactSection() {
         <aside className="space-y-4">
           <div className="glass-card p-6">
             <p className="premium-pill w-fit">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
               Open to work
             </p>
-            <h3 className="mt-5 text-2xl font-bold text-lilac-900">Fastest way to reach me</h3>
-            <p className="mt-3 break-all text-lilac-800/80">{profile.email}</p>
-            <button type="button" onClick={copyEmail} className="premium-button-secondary mt-5">
-              <Copy className="h-4 w-4" />
+            <h3 className="mt-5 text-xl font-bold text-lilac-900">Fastest way to reach me</h3>
+            <p className="mt-2 break-all text-sm text-lilac-800/80">{profile.email}</p>
+            <button type="button" onClick={copyEmail} className="premium-button-secondary mt-4">
+              <Copy className="h-4 w-4" aria-hidden />
               Copy email
             </button>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {socials.map(({ label, href, icon: Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" className="glass-card glass-card-hover flex items-center gap-3 p-5">
-                <Icon className="h-5 w-5 text-lilac-500" />
-                <span className="font-bold text-lilac-800">{label}</span>
+              <a key={label} href={href} target="_blank" rel="noreferrer" className="glass-card glass-card-hover flex items-center gap-3 p-4">
+                <Icon className="h-5 w-5 text-lilac-500" aria-hidden />
+                <span className="text-sm font-bold text-lilac-800">{label}</span>
               </a>
             ))}
           </div>

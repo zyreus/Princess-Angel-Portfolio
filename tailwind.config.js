@@ -42,20 +42,21 @@ export default {
         /**
          * Exact user-provided monochromatic secondary ramp.
          * Keeps existing `lilac-*` class names across the site.
+         * Updated to match the professional Deep Violet palette.
          */
         lilac: {
-          50: '#FFFFFF',
-          100: '#E6E6FF',
-          200: '#D1CCFA',
-          300: '#BD99F5',
-          400: '#A866F0',
-          500: '#9333EA',
-          600: '#8040C0',
-          700: '#663399',
-          800: '#4D2673',
-          900: '#331A4D',
-          950: '#1A0D26',
-          975: '#000000',
+          50: '#FAF9FC',   // Warm White background
+          100: '#EDE5F7',  // Soft Lavender
+          200: '#D8C9EF',
+          300: '#C2ACE7',
+          400: '#AB8FDE',
+          500: '#9273B5',  // Muted Violet accent
+          600: '#7A5DA0',
+          700: '#5B3A8E',  // Deep Violet primary
+          800: '#3E2566',  // deep heading color
+          900: '#292631',  // Dark Charcoal text
+          950: '#1A1520',
+          975: '#0D0B10',
         },
         accent: {
           pink: '#fce7f3',
@@ -66,8 +67,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Quicksand"', '"Comfortaa"', 'ui-rounded', 'system-ui', 'sans-serif'],
-        sans: ['"Lato"', '"Open Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"DM Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', '"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         glow: '0 0 50px rgba(124, 58, 237, 0.28)',

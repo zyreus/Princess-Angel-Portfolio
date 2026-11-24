@@ -20,8 +20,8 @@ function ProjectsShowcaseSection({ compact = false }) {
       <div className="mx-auto max-w-[760px] text-center">
         <SectionHeading
           eyebrow="Projects"
-          title="Premium project showcase for recruiters and clients."
-          subtitle="Explore polished project cards with balanced previews, focused details, clean stacks, and direct action links."
+          title="Systems, applications, and creative works."
+          subtitle="A categorized portfolio spanning administrative systems, information management, software development, and creative works."
         />
       </div>
       <div className="flex justify-center">
@@ -34,11 +34,10 @@ function ProjectsShowcaseSection({ compact = false }) {
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`rounded-full border px-4 py-2 text-xs font-extrabold tracking-[-0.01em] transition duration-300 sm:px-5 sm:text-sm ${
-                  isActive
+                className={`rounded-full border px-4 py-2 text-xs font-extrabold tracking-[-0.01em] transition duration-300 sm:px-5 sm:text-sm ${isActive
                     ? 'border-lilac-300 bg-lilac-100 text-lilac-800 shadow-[0_12px_30px_rgba(124,58,237,0.12)]'
                     : 'border-transparent bg-white/60 text-slate-600 hover:-translate-y-0.5 hover:border-lilac-200/80 hover:bg-white hover:text-lilac-800'
-                }`}
+                  }`}
               >
                 {category}
               </button>

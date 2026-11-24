@@ -15,8 +15,8 @@ function Achievements() {
     <section className="space-y-12 py-12 md:py-16">
       <SectionHeading
         eyebrow="Achievements"
-        title="A premium timeline of academic, leadership, OJT, and system-building milestones."
-        subtitle="Structured for recruiters to quickly understand impact, direction, leadership, and hands-on project experience."
+        title="Professional milestones in administrative, digital, and IT work."
+        subtitle="A timeline of key work experiences, project contributions, and academic achievements."
       />
 
       <div className="grid gap-4 md:grid-cols-4">

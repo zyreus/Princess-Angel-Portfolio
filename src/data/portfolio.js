@@ -7,43 +7,113 @@ import medicalTriageDashboard from '../assets/medical-triage-dashboard.png'
 import projectDashboard from '../assets/mabuhightrack-dashboard.png'
 import photographySampleFour from '../assets/photography-sample-4.png'
 
-export const roles = ['Full Stack Developer', 'UI/UX Designer', 'Data Analyst', 'System Developer']
+export const roles = [
+  'Administrative Support',
+  'Data Management',
+  'Digital Operations',
+  'IT Solutions',
+  'Office Operations',
+]
 
 export const profile = {
-  name: 'Princess Angel Paslot',
+  name: 'Princess Angel R. Paslot',
   email: 'princessangel.paslot@gmail.com',
-  location: 'Philippines',
-  tagline: 'Full Stack Developer, UI/UX Designer, and Data-driven System Builder',
+  location: 'Davao del Norte, Philippines',
+  tagline: 'Administrative Support | Data Management | Digital Operations | IT Solutions',
   summary:
-    'I design polished interfaces and build practical systems that help teams track operations, improve workflows, and turn data into clearer decisions.',
+    'I am an Information Technology graduate with a strong interest in administrative operations, data management, and digital solutions. I bring together technical knowledge, organizational skills, and attention to detail to support efficient workflows and business operations.',
   github: 'https://github.com/princesspaslot',
   linkedin: 'https://www.linkedin.com/in/princess-angel-paslot-03568b315/',
   facebook: 'https://www.facebook.com/yourprincess.angel',
 }
 
 export const stats = [
-  { label: 'Major systems', value: '4+' },
-  { label: 'Core skill areas', value: '6' },
-  { label: 'Training milestones', value: '8+' },
+  { label: 'IT Systems Built', value: '4+' },
+  { label: 'Skill Categories', value: '5' },
+  { label: 'Certifications', value: '7+' },
   { label: 'Availability', value: 'Open' },
 ]
 
+export const skillCategories = [
+  {
+    category: 'Administrative & Office Support',
+    icon: 'Briefcase',
+    tools: [
+      'Document Preparation',
+      'File & Records Organization',
+      'Administrative Coordination',
+      'Scheduling & Task Management',
+      'Report Preparation',
+      'Business Correspondence',
+    ],
+  },
+  {
+    category: 'Data Management & Documentation',
+    icon: 'Database',
+    tools: [
+      'Data Entry',
+      'Microsoft Excel',
+      'Google Sheets',
+      'Data Organization',
+      'Database Management',
+      'Digital Record Keeping',
+      'Information Management',
+    ],
+  },
+  {
+    category: 'HR & Operations Support',
+    icon: 'Users',
+    tools: [
+      'Contractor Information Tracking',
+      'Personnel Records Organization',
+      'Recruitment Coordination Support',
+      'Contractor Pool Monitoring',
+      'Capacity Tracking',
+      'Operational Reporting',
+    ],
+  },
+  {
+    category: 'Digital & Creative Operations',
+    icon: 'Monitor',
+    tools: [
+      'WordPress Content Management',
+      'Website Administration',
+      'Social Media Management',
+      'Content Scheduling',
+      'Canva',
+      'Digital Content Organization',
+    ],
+  },
+  {
+    category: 'Information Technology',
+    icon: 'Code',
+    tools: [
+      'HTML & CSS',
+      'JavaScript',
+      'PHP & Laravel',
+      'MySQL',
+      'React.js',
+      'Bootstrap',
+      'Git & GitHub',
+    ],
+  },
+]
+
+// Legacy skills array kept for backward compatibility
 export const skills = [
-  { category: 'Frontend', level: 92, tools: ['React', 'TailwindCSS', 'Filament', 'Responsive UI', 'Accessibility'] },
-  { category: 'Backend', level: 86, tools: ['Node.js', 'Laravel', 'REST APIs', 'Authentication'] },
-  { category: 'Database', level: 84, tools: ['MySQL', 'Data Modeling', 'Reporting', 'Query Design'] },
-  { category: 'UI/UX', level: 90, tools: ['Wireframes', 'Design Systems', 'Prototyping', 'User Flows'] },
-  { category: 'DevOps', level: 74, tools: ['Vercel', 'GitHub', 'Deployment', 'Performance Audits'] },
-  { category: 'Data Analytics', level: 88, tools: ['Dashboards', 'Metrics', 'Prediction Logic', 'Insights'] },
+  { category: 'Administrative & Office Support', level: null, tools: ['Document Preparation', 'File & Records Organization', 'Administrative Coordination', 'Scheduling & Task Management', 'Report Preparation', 'Business Correspondence'] },
+  { category: 'Data Management', level: null, tools: ['Data Entry', 'Microsoft Excel', 'Google Sheets', 'Data Organization', 'Database Management', 'Digital Record Keeping'] },
+  { category: 'HR & Operations Support', level: null, tools: ['Contractor Information Tracking', 'Personnel Records Organization', 'Recruitment Coordination', 'Operational Reporting'] },
+  { category: 'Digital & Creative Operations', level: null, tools: ['WordPress Content Management', 'Website Administration', 'Social Media Management', 'Canva', 'Content Scheduling'] },
+  { category: 'Information Technology', level: null, tools: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Laravel', 'MySQL', 'React.js', 'Git & GitHub'] },
 ]
 
 export const projectCategories = [
   'All',
-  'AI Projects',
-  'Laravel Systems',
-  'Graphic Design',
-  'Videos',
-  'Pictures',
+  'Administrative & Business Systems',
+  'Information Management Systems',
+  'Web & Software Development',
+  'Creative Works',
 ]
 
 const graphicDesignReviewLinks = [
@@ -71,8 +141,8 @@ export const projects = [
     id: 'mabuhightrack',
     title: 'MabuHighTrack',
     role: 'Project Manager, System Analyst',
-    description: 'A student performance tracking system with analytics dashboards and AI-powered prediction insights.',
-    category: 'AI Projects',
+    description: 'A student performance tracking system with analytics dashboards and AI-powered prediction insights. Supports role-based access, academic monitoring, and data-driven decision-making for school administrators.',
+    category: 'Information Management Systems',
     image: projectDashboard,
     stack: ['React', 'Node.js', 'Analytics', 'AI Prediction'],
     stats: ['Predictive Insights', 'Role-based Dashboard', 'Academic Monitoring'],
@@ -83,11 +153,11 @@ export const projects = [
     id: 'medical-triage',
     title: 'Medical Triage System',
     role: 'Developer, Analyst',
-    description: 'A patient prioritization platform for efficient healthcare queue management and response.',
-    category: 'Laravel Systems',
+    description: 'A patient prioritization platform for efficient healthcare queue management and response. Automates triage logic, tracks patient records, and helps staff prioritize based on urgency.',
+    category: 'Administrative & Business Systems',
     image: medicalTriageDashboard,
-    stack: ['Web App', 'Filament-Laravel', 'Healthcare', 'Data Logic'],
-    stats: ['Priority rules', 'Queue management', 'OJT delivery'],
+    stack: ['Filament-Laravel', 'PHP', 'MySQL', 'Healthcare'],
+    stats: ['Priority rules', 'Queue management', 'Patient records'],
     liveUrl: '#',
     githubUrl: 'https://github.com/luvjenni/MedTriage',
   },
@@ -95,8 +165,8 @@ export const projects = [
     id: 'graphic-design-collection',
     title: 'Graphic Design Collection',
     role: 'Graphic Designer',
-    description: 'A collection of social media graphics, posters, layouts, and visual brand pieces for clear communication.',
-    category: 'Graphic Design',
+    description: 'A collection of social media graphics, posters, layouts, and visual brand pieces created for clear communication and professional presentation.',
+    category: 'Creative Works',
     image: graphicDesignSampleSix,
     stack: ['Canva', 'Photoshop', 'Layouting', 'Typography'],
     stats: ['Poster designs', 'Social graphics', 'Visual hierarchy'],
@@ -108,8 +178,8 @@ export const projects = [
     id: 'video-editing-showcase',
     title: 'Video Presentation & Editing',
     role: 'Video Editor, Presenter',
-    description: 'Edited and presented video content with storytelling, pacing, clean visuals, and audience-focused delivery.',
-    category: 'Videos',
+    description: 'Edited and presented video content with storytelling, pacing, clean visuals, and audience-focused delivery. Demonstrates communication and content production skills.',
+    category: 'Creative Works',
     image: 'https://drive.google.com/thumbnail?id=10kSXOTRBVNFB-oJDiknDZ6W6JIXPiUj1&sz=w1200',
     stack: ['CapCut', 'Premiere Pro', 'Storytelling', 'Presentation'],
     stats: ['Video editing', 'On-camera delivery', 'Creative direction'],
@@ -122,7 +192,7 @@ export const projects = [
     title: 'Pictures & Photography',
     role: 'Photographer, Photo Editor',
     description: 'A photography collection focused on composition, meaningful moments, lighting, and polished image editing.',
-    category: 'Pictures',
+    category: 'Creative Works',
     image: photographySampleFour,
     stack: ['Photography', 'Photo Editing', 'Composition', 'Lighting'],
     stats: ['Portraits', 'Event moments', 'Edited visuals'],
@@ -241,7 +311,62 @@ export const certificateFilters = [
   'Awards & Recognition',
 ]
 
+export const workExperience = [
+  {
+    id: 'creativeblox',
+    company: 'CreativeBlox Multimedia Services',
+    role: 'Junior Graphic Designer / Digital Operations Support',
+    type: 'Independent Contractor',
+    period: 'May 4, 2026 – Present',
+    responsibilities: [
+      'Prepared weekly reports and organized internal documentation.',
+      'Maintained contractor pool trackers and specialty records.',
+      'Assisted in contractor pre-qualification and coordination processes.',
+      'Organized social media content and posting schedules.',
+      'Assisted with WordPress content management and website updates.',
+      'Reviewed internal policies and employee/contractor documentation.',
+      'Supported digital operations and administrative coordination.',
+    ],
+    skills: ['Documentation', 'Coordination', 'WordPress', 'Social Media', 'Records Management', 'Reporting'],
+  },
+  {
+    id: 'ojt',
+    company: 'On-the-Job Training (OJT)',
+    role: 'OJT Team Leader / System Developer',
+    type: 'Academic Internship',
+    period: '2025',
+    responsibilities: [
+      'Led team coordination, task distribution, and project delivery.',
+      'Developed and contributed to the Medical Triage System.',
+      'Prepared documentation, progress reports, and technical records.',
+      'Coordinated with supervisors and stakeholders on project requirements.',
+      'Applied knowledge in system analysis, development, and testing.',
+    ],
+    skills: ['Team Leadership', 'System Development', 'Documentation', 'Project Management', 'Communication'],
+  },
+]
+
+export const toolsAndTechnologies = [
+  {
+    group: 'Office Productivity',
+    items: ['Microsoft Word', 'Microsoft Excel', 'Microsoft PowerPoint', 'Google Docs', 'Google Sheets'],
+  },
+  {
+    group: 'Design & Content',
+    items: ['Canva', 'WordPress', 'Adobe Photoshop'],
+  },
+  {
+    group: 'Development',
+    items: ['PHP', 'Laravel', 'JavaScript', 'React.js', 'MySQL', 'HTML & CSS'],
+  },
+  {
+    group: 'Collaboration & Productivity',
+    items: ['GitHub', 'Git', 'Vercel', 'Google Drive'],
+  },
+]
+
 export const achievements = [
+  { year: '2026', title: 'Junior Digital Operations Support at CreativeBlox', type: 'Work Experience', description: 'Provides administrative and digital operations support as an independent contractor, handling documentation, coordination, records management, and content operations.' },
   { year: '2026', title: 'Developed MabuHighTrack System', type: 'System Development', description: 'Led planning and analysis for a student performance tracking platform with dashboards and prediction insights.' },
   { year: '2025', title: 'OJT Team Leader', type: 'Leadership', description: 'Coordinated team responsibilities, project delivery, and documentation while contributing to a medical triage system.' },
   { year: '2025', title: 'Full Stack Development Training', type: 'Training', description: 'Completed hands-on development training covering modern web application structure and deployment practices.' },

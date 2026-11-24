@@ -7,7 +7,7 @@ function FeaturedProjectSection() {
       <div className="space-y-4">
         <p className="eyebrow">Featured Project</p>
         <h2 className="text-cute-gradient font-display text-3xl font-bold">MabuHighTrack</h2>
-        <p className="leading-relaxed text-lilac-900/90">A student performance tracking system with analytics and AI prediction.</p>
+        <p className="leading-relaxed text-lilac-900/80">An academic information management system for tracking student performance with analytics dashboards and AI-based prediction insights.</p>
         <p className="text-sm font-medium text-lilac-800">Role: Project Manager &amp; System Analyst</p>
         <Link to="/projects" className="btn-gradient">
           View Full Project

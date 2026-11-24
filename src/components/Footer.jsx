@@ -80,8 +80,7 @@ function Footer() {
                   Princess Angel Paslot
                 </h2>
                 <p className="max-w-xl text-lg leading-8 text-lilac-900/70 sm:text-xl sm:leading-9">
-                  Crafting digital experiences with <span className="font-bold text-lilac-600">creativity</span> and{' '}
-                  <span className="font-bold text-lilac-600">code</span>.
+                  IT &amp; Administrative Professional — organized, tech-savvy, and ready to contribute.
                 </p>
               </div>
             </div>
@@ -124,10 +123,9 @@ function Footer() {
 
         <motion.div variants={itemVariants} className="relative flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
           <p className="max-w-2xl text-sm leading-7 text-lilac-900/65 sm:text-base">
-            <span className="font-bold text-lilac-950">© 2026 Princess Angel Paslot.</span>
+            <span className="font-bold text-lilac-900">© 2026 Princess Angel R. Paslot.</span>
             <br />
-            Crafting digital experiences with <span className="font-bold text-lilac-600">creativity</span> and{' '}
-            <span className="font-bold text-lilac-600">code</span>.
+            IT &amp; Administrative Professional — administrative support, data management, digital operations, and IT solutions.
           </p>
 
           <div className="flex items-center gap-3">

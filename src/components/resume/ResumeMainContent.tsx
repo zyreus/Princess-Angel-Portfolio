@@ -73,12 +73,13 @@ function WorkExperience() {
     <section className="resume-card work-section">
       <CardHeader icon={resumeMeta.experienceIcon} title="Work Experience" />
       <div className="work-grid">
-        {experiences.map(({ icon: Icon, role, details }) => (
+        {experiences.map(({ icon: Icon, role, company, details }) => (
           <article key={role} className="work-card">
             <span className="work-icon">
               <Icon size={16} strokeWidth={2.2} aria-hidden />
             </span>
             <h3>{role}</h3>
+            {company ? <p style={{ fontSize: '8.5px', color: '#7c3aed', fontWeight: 600, marginTop: '3px', marginBottom: '0' }}>{company}</p> : null}
             <ul>
               {details.map((detail) => (
                 <li key={detail}>
