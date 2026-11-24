@@ -80,12 +80,14 @@
 
   /* ─── Cards ────────────────────────────────────────────────── */
   .card {
-    @apply rounded-[18px] border border-lilac-200/70 bg-white shadow-card;
+    @apply rounded-[18px] border border-lilac-200/70 bg-white;
+    box-shadow: 0 2px 16px rgba(98, 59, 152, 0.07);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
   }
 
   .card:hover {
-    @apply shadow-card-hover -translate-y-0.5;
+    box-shadow: 0 8px 28px rgba(98, 59, 152, 0.14);
+    transform: translateY(-2px);
   }
 
   /* Legacy glass-card alias */
